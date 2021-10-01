@@ -10,5 +10,7 @@ package za.ac.cput.adpfinalproj.clientgui;
  * @author POTATOE
  */
 public class CGui {
-    
+    public static void main(String[] args) {
+ System.out.println("hELLO WORLD");
+}
 }
