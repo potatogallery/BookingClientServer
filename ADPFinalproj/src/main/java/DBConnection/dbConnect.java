@@ -4,11 +4,18 @@
  * and open the template in the editor.
  */
 package DBConnection;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 /**
  *
  * @author POTATOE
  */
 public class dbConnect {
-    
+    public static Connection derbyConnection() throws SQLException{
+        String url="jdbc:derby://localhost:1527/DBookings";
+        String user="Admin1";
+        String password="Admin1";  
+      return DriverManager.getConnection(url, user, password);
+    } 
 }
