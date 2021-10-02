@@ -6,8 +6,11 @@
 package za.ac.cput.adpfinalproj.clientgui;
 
 /**
- *
- * @author POTATOE
+ *CGui.java
+ * @author Raeece Samuels ('StundentNo') & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
+ * 
+ * GUI APPL
  */
 public class CGui {
     public static void main(String[] args) {

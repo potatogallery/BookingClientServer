@@ -8,8 +8,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 /**
- *
- * @author POTATOE
+ *dbConnect.java
+ * @author Raeece Samuels ('StundentNo') & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
+ * 
+ * DATABASE CONNECTION CLASS
  */
 public class dbConnect {
     public static Connection derbyConnection() throws SQLException{

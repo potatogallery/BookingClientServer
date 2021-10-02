@@ -6,8 +6,11 @@
 package worker;
 
 /**
- *
- * @author POTATOE
+ *CWorker.java
+ * @author Raeece Samuels ('StundentNo') & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
+ * 
+ * WORKER CLASS
  */
 public class CWorker {
     
