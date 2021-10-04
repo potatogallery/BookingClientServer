@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 /**
  *dbConnect.java
- * @author Raeece Samuels ('StundentNo') & Keallan Saunders (219169357)
+ * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
  * ADP262S FINAL PROJECT DD:15 OCT 2021
  * 
  * DATABASE CONNECTION CLASS
