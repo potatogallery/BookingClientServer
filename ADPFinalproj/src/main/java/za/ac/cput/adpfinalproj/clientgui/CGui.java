@@ -81,12 +81,12 @@ public class CGui extends JFrame implements ActionListener  {
       lblErrorOnPassword = new JLabel ("*Required*");
        
        btnEnter = new JButton ("Enter");
-       btnEnter.setBackground(Color.BLUE);
+       btnEnter.setBackground(Color.GREEN);
    
     }
    ////////////////////////*SETTTTINGGGG GUUUIIIII////////////////////////////////////////////////// 
    public void setGUI(){
-                                
+                              
       this.setLayout(new GridLayout(12, 3));
       
       this.add(myHeaderSpace1);
