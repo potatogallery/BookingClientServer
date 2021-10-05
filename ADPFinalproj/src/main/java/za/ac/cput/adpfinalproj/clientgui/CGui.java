@@ -130,7 +130,7 @@ public class CGui extends JFrame implements ActionListener  {
    public void actionPerformed(ActionEvent e){
      if (e.getActionCommand().equals("Enter")){}
          
-         this.setMyArrays();
+         Admin admin = new Admin();
          
      } /*else if(e.getActionCommand().equals("Next")){
         
