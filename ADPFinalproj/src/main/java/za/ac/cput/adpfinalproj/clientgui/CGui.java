@@ -128,19 +128,15 @@ public class CGui extends JFrame implements ActionListener  {
    }
   ///////////////////// BUTTTTTTTTONNNNNN ACTTTTIOOOOOONS///////////////////////////////////////////
    public void actionPerformed(ActionEvent e){
-     if (e.getActionCommand().equals("Enter")){}
+     if (e.getActionCommand().equals("Admin")){
+     Admin admin = new Admin();}
          
-         Admin admin = new Admin();
+      
+    else if(e.getActionCommand().equals("Enter")){
+        Users users = new Users();
          
-     } /*else if(e.getActionCommand().equals("Next")){
-        
-         size = size +1;
-         if (size == arList.size()){
-         size=0;
-         }
-         this.setMyArrays();
          
-     } if (e.getActionCommand().equals("Exit")){
+     }}/* if (e.getActionCommand().equals("Exit")){
          System.exit(0);
      }*/
    
