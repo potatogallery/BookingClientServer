@@ -13,11 +13,11 @@ import javax.swing.JLabel;
  */
 public class Admin extends JFrame {
     JFrame frame = new JFrame();
-    JLabel welcomeLabel = new JLabel("Hello!");
+    JLabel welcomeLabel = new JLabel("Admin Class Action goes here!");
     
-    Admin(){
+    public Admin(){
         
-        welcomeLabel.setBounds(0,0,200,35);
+        welcomeLabel.setBounds(0,0,900,50);
         welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
         
         frame.add(welcomeLabel);

@@ -5,8 +5,13 @@
  */
 package za.ac.cput.adpfinalproj.clientgui;
 
+import DBConnection.dbConnect;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import static java.util.Collections.sort;
 import java.util.ListIterator;
@@ -17,10 +22,15 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import worker.CWorker;
+import za.ac.cput.adpfinalproj.clientgui.Admin;
+import za.ac.cput.adpfinalproj.clientgui.Users;
+import Server.ServerCL;
+import java.sql.SQLException;
 /**
  *CGui.java
  * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
@@ -28,9 +38,11 @@ import worker.CWorker;
  * 
  * GUI APPL
  */
-public class CGui extends JFrame implements ActionListener  {
+public class CGui extends JFrame implements ActionListener {
     
-
+Connection con = dbConnect.derbyConnection();
+PreparedStatement ps= null;
+ResultSet ra = null;
     private JPanel panelsouth;
     /////////////////////////Title//////////////////////////
     private JLabel myHeaderSpacing; 
@@ -57,6 +69,9 @@ public class CGui extends JFrame implements ActionListener  {
     private JLabel blank2;
     
    public CGui(){
+       
+       
+       dbConnect.derbyConnection();
        ///////////////////////////LOOOOKS OF GUI////////////////////////////////
       myHeaderSpacing = new JLabel();
       ///ICON//
@@ -128,7 +143,35 @@ public class CGui extends JFrame implements ActionListener  {
    }
   ///////////////////// BUTTTTTTTTONNNNNN ACTTTTIOOOOOONS///////////////////////////////////////////
    public void actionPerformed(ActionEvent e){
-     if (e.getActionCommand().equals("Admin")){
+       String login= "SELECT * FROM multilogin WHERE firstname=? AND passw=? AND utype=?" ;
+       try{
+           ps=con.prepareStatement(login);
+           ps.setString(1, txtFirstName.getText());
+           ps.setString(2, txtPassword.getText());
+           ps.setString(3, (String) cboTitle.getSelectedItem());
+           ra= ps.executeQuery();
+           
+           
+           
+           if(ra.next())
+            {
+               JOptionPane.showMessageDialog(this, "Welcome  "+ra.getString("utype"));
+               if(cboTitle.getSelectedIndex()==0){
+                   Admin a = new Admin();
+                   a.setVisible(true);
+                   this.setVisible(false);
+               }else{
+                   Users b = new Users();
+                   b.setVisible(true);
+                   this.setVisible(false);
+               }
+            }else {
+               JOptionPane.showMessageDialog(null, "Login Failed!");
+           }
+       }catch(SQLException ex){
+           JOptionPane.showMessageDialog(null, ex);
+       }
+     /*if (e.getActionCommand().equals("Enter")){
      Admin admin = new Admin();}
          
       
@@ -136,10 +179,10 @@ public class CGui extends JFrame implements ActionListener  {
         Users users = new Users();
          
          
-     }}/* if (e.getActionCommand().equals("Exit")){
+     }*//* if (e.getActionCommand().equals("Exit")){
          System.exit(0);
      }*/
-   
+   }
    public static void main(String[] args) {
         new CGui().setGUI();
     }

@@ -15,11 +15,11 @@ import javax.swing.JLabel;
  */
 public class Users extends JFrame {
     JFrame frame = new JFrame();
-    JLabel welcomeLabel = new JLabel("Awe!");
+    JLabel welcomeLabel = new JLabel("Users Class Fuctions Goes Here!");
     
-    Users(){
+    public Users(){
         
-        welcomeLabel.setBounds(0,0,200,35);
+        welcomeLabel.setBounds(0,0,900,50);
         welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
         
         frame.add(welcomeLabel);
