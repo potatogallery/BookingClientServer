@@ -44,7 +44,7 @@ Connection con = dbConnect.derbyConnection();
 PreparedStatement ps= null;
 ResultSet ra = null;
     private JPanel panelsouth;
-    /////////////////////////Title//////////////////////////
+    /////////////////////////list//////////////////////////
     private JLabel myHeaderSpacing; 
     private JLabel myheaderLabel;
     private JLabel myHeaderSpace1;
@@ -53,7 +53,7 @@ ResultSet ra = null;
     private JComboBox cboTitle;
     private JLabel lblErrorOnTitleSpace;
     
-    //////////////////FirstName & LastName/////////////////
+    //////////////////FirstName & password/////////////////
     private JLabel lblFirstName;
     private JTextField txtFirstName;
     private JLabel lblOnFirstNameSpace;
@@ -63,7 +63,7 @@ ResultSet ra = null;
     private JLabel lblErrorOnPassword;
     
 
-    //////////////////BUTTONS FOR NEXT,PREVIOUS OR EXIT/////////////////////
+    //////////////////BUTTONS/////////////////////
     private JButton btnEnter;
     private JLabel blank1;
     private JLabel blank2;
@@ -89,11 +89,11 @@ ResultSet ra = null;
       
       lblFirstName = new JLabel ("First Name:   ");
       txtFirstName = new JTextField (15);
-      lblOnFirstNameSpace = new JLabel("*Required*");
+      
        
       lblPassword = new JLabel ("Password:   ");
       txtPassword = new JTextField (15);
-      lblErrorOnPassword = new JLabel ("*Required*");
+      
        
        btnEnter = new JButton ("Enter");
        btnEnter.setBackground(Color.GREEN);
@@ -104,25 +104,25 @@ ResultSet ra = null;
                               
       this.setLayout(new GridLayout(12, 3));
       
+      
       this.add(myHeaderSpace1);
       this.add(myheaderLabel);
       this.add(myHeaderSpacing);
       
       
       this.add(blank1);
-      //this.add(blank2);
       this.add(lblTitle);
       this.add(cboTitle);
       
       cboTitle.addItem("Admin");
       cboTitle.addItem("User");
 
-      //this.add(lblErrorOnTitleSpace);
+
       ///FIRSTNAME///
       this.add(lblFirstName);
       this.add(txtFirstName);
-      //this.add(lblOnFirstNameSpace);
-      ///LASTNAME////
+
+      ///password////
       this.add(lblPassword);
       this.add(txtPassword);
       //this.add(lblErrorOnPassword);
@@ -137,10 +137,7 @@ ResultSet ra = null;
         this.setLocationRelativeTo(null);
         this.setVisible(true);
    }
-   ///////////////////CONTROLS OF ARRAY LIST OPTIONS//////////////////////////
-   public void setMyArrays(){
 
-   }
   ///////////////////// BUTTTTTTTTONNNNNN ACTTTTIOOOOOONS///////////////////////////////////////////
    public void actionPerformed(ActionEvent e){
        String login= "SELECT * FROM multilogin WHERE firstname=? AND passw=? AND utype=?" ;
@@ -171,17 +168,6 @@ ResultSet ra = null;
        }catch(SQLException ex){
            JOptionPane.showMessageDialog(null, ex);
        }
-     /*if (e.getActionCommand().equals("Enter")){
-     Admin admin = new Admin();}
-         
-      
-    else if(e.getActionCommand().equals("Enter")){
-        Users users = new Users();
-         
-         
-     }*//* if (e.getActionCommand().equals("Exit")){
-         System.exit(0);
-     }*/
    }
    public static void main(String[] args) {
         new CGui().setGUI();
@@ -190,48 +176,3 @@ ResultSet ra = null;
 //////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////// END OF PROGRAM /////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
-
-    //    TextField text = new TextField(20);
-     //   Button b;
-     //   private int numClicks = 0;
-
-      /*  public static void main(String[] args) {
-                CGui myWindow = new CGui("My first window");
-                myWindow.setSize(350,100);
-                myWindow.setVisible(true);
-        }*/
-
-        /*public CGui(String title) {
-
-                super(title);
-                setLayout(new FlowLayout());
-                addWindowListener(this);
-                b = new Button("Click me");
-                add(b);
-                add(text);
-                b.addActionListener(this);
-        }*/
-
-       /* public void actionPerformed(ActionEvent e) {
-                numClicks++;
-                text.setText("Button Clicked " + numClicks + " times");
-        }
-
-        public void windowClosing(WindowEvent e) {
-                dispose();
-                System.exit(0);
-        }
-
-        public void windowOpened(WindowEvent e) {}
-        public void windowActivated(WindowEvent e) {}
-        public void windowIconified(WindowEvent e) {}
-        public void windowDeiconified(WindowEvent e) {}
-        public void windowDeactivated(WindowEvent e) {}
-        public void windowClosed(WindowEvent e) {}
-
-    public static void main(String[] args) {
-        new CGui().setGUI();
-    }
-
-    
-}*/

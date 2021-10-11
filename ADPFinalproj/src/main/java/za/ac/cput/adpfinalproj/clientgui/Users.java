@@ -6,9 +6,14 @@
 package za.ac.cput.adpfinalproj.clientgui;
 
 import java.awt.Font;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
+import javax.swing.*;
+import worker.CWorker;
+import za.ac.cput.adpfinalproj.clientgui.Admin;
+import za.ac.cput.adpfinalproj.clientgui.Users;
+import Server.ServerCL;
+import java.sql.SQLException;
+import java.sql.Connection;
+import DBConnection.dbConnect;
 /**
  *
  * @author POTATOE
@@ -24,7 +29,7 @@ public class Users extends JFrame {
         
         frame.add(welcomeLabel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(420,420);
+        frame.setSize(1420,700);
         frame.setLayout(null);
         frame.setVisible(true);
     }

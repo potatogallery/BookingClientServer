@@ -18,11 +18,11 @@ public class Admin extends JFrame {
     public Admin(){
         
         welcomeLabel.setBounds(0,0,900,50);
-        welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
+        welcomeLabel.setFont(new Font(null, Font.PLAIN,20));
         
         frame.add(welcomeLabel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(420,420);
+        frame.setSize(1420,700);
         frame.setLayout(null);
         frame.setVisible(true);
     }
