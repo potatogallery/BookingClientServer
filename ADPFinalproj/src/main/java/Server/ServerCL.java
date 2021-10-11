@@ -22,8 +22,10 @@ import worker.CWorker;
  *ServerCL.java
  * @author Raeece Samuels ('StundentNo') & Keallan Saunders (219169357)
  * ADP262S FINAL PROJECT DD:15 OCT 2021
- * 
+ * awe other go was here
  * SERVER CLASS
+ * 
+ * 
  */
 public class ServerCL extends JFrame{
     
