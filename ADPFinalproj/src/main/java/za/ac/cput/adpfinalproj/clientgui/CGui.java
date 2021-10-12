@@ -146,8 +146,7 @@ ResultSet ra = null;
            ps.setString(1, txtFirstName.getText());
            ps.setString(2, txtPassword.getText());
            ps.setString(3, (String) cboTitle.getSelectedItem());
-           ra= ps.executeQuery();
-           
+           ra= ps.executeQuery();         
            
            
            if(ra.next())
