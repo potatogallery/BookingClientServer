@@ -4,19 +4,7 @@
  * and open the template in the editor.
  */
 package Server;
-import java.awt.event.ActionEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import za.ac.cput.adpfinalproj.clientgui.Admin;
-import za.ac.cput.adpfinalproj.clientgui.CGui;
-import za.ac.cput.adpfinalproj.clientgui.Users;
-import DBConnection.dbConnect;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import worker.CWorker;
 
 /**
  *ServerCL.java
