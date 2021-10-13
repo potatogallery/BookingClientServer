@@ -7,151 +7,271 @@ package za.ac.cput.adpfinalproj.clientgui;
 
 import java.awt.Font;
 import javax.swing.*;
-import java.sql.Connection;
-import DBConnection.dbConnect;
-import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 /**
  *
  * @author POTATOE
  */
 public class Users extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
-    JLabel welcomeLabel = new JLabel("Users Class Fuctions Goes Here!");
+    JLabel welcomeLabel = new JLabel("User Class Functions Goes Here!");
+    JPanel panelnorth = new JPanel();
+    JPanel panelsouth = new JPanel();
+    JPanel paneleast = new JPanel();
+    JPanel panelwest = new JPanel();
+    /////////////////////////Title//////////////////////////
+    JLabel myheaderLabel = new JLabel("");
+    /*JLabel lblTitle = new JLabel("");
+    private JComboBox cboTitle;
+    private JLabel lblErrorOnTitleSpace;*/
     
-    Connection con = dbConnect.derbyConnection();
-    PreparedStatement Ps= null;
-    ResultSet rs = null;
     
-    private JPanel panelsouth;
-
+    //////////////// New User/////////////////
+    JLabel lblNewuser = new JLabel("New User");
+    JLabel myHeaderSpacing1 = new JLabel("");
+    JLabel myHeaderSpacing2 = new JLabel("");
+    JLabel lblfname = new JLabel("First Name:");
+    JTextField txtfname = new JTextField();
+    JLabel myHeaderSpacing3 = new JLabel("Surname");
+    JLabel lblSurname = new JLabel("Surname:");
+    JTextField txtsurname = new JTextField();
+    JLabel myHeaderSpacing4 = new JLabel("");
+    JLabel lblcell = new JLabel("Cell:");
+    JTextField txtcell = new JTextField();
+    JLabel myHeaderSpacing5 = new JLabel("");
+    JLabel lblemail = new JLabel("E-mail:");
+    JTextField txtemail = new JTextField();
     
-    //////////////////FirstName & password/////////////////
-    private JLabel lblFirstName;
-    private JTextField txtFirstName;
-    private JLabel lblOnFirstNameSpace;
+    //////////////////New Booking/////////////////
+    JLabel lblBooking = new JLabel("New Booking");
+    JLabel myHeaderSpace1 = new JLabel("");
+    JLabel lblCustomerName = new JLabel("Customer Name:");
+    JTextField txtCustomerName = new JTextField();
+    JLabel lbladdVenue = new JLabel(" Venue:");
+    JTextField txtaddVenue = new JTextField();
+    JLabel myHeaderSpace2 = new JLabel("");
+    JLabel lblDate = new JLabel(" Date:");
+    JTextField txtDate = new JTextField();
+    JLabel myHeaderSpace3 = new JLabel("");
     
-    private JLabel lblSurname;
-    private JTextField txtSurname;
-    private JLabel lblErrorSurname;
+    ////////////////////Bookings/////////////////
+    JLabel lblBookings = new JLabel("Bookings");
+    JTable tblVenues = new JTable();
     
-    private JLabel lblCell;
-    private JTextField txtCell;
-    private JLabel lblErrorCell;
+    JLabel lblInvoice = new JLabel("Invoice");
+    JComboBox cboInvoice = new JComboBox();
     
-    private JLabel lblEmail;
-    private JTextField txtEmail;
-    private JLabel lblErrorEmail;
-
-    //////////////////BUTTONS/////////////////////
-    private JButton btnExit;
-    private JButton btnUpdate;
-    private JButton btnRefresh;
-    private JButton btnReset;
     
-
+    //////////////////BUTTONS FOR Update,Reset OR EXIT/////////////////////
+    JButton btnUpdate = new JButton("Update");
+    JButton btnReset = new JButton("Reset");
+    JButton btnExit = new JButton("Exit");
+    
+    JLabel blank1 = new JLabel("");
+    JLabel blank2 = new JLabel("");
     
     public Users(){
-        
         welcomeLabel.setBounds(0,0,900,50);
         welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
-        
         frame.add(welcomeLabel);
+        frame.add(panelnorth);
+        frame.add(panelsouth);
+        frame.add(paneleast);
+        frame.add(panelwest);
+        frame.add(myHeaderSpace2);
+        frame.add(lblNewuser);
+        frame.add(myHeaderSpacing1);
+        frame.add(lblfname);
+        frame.add(txtfname);
+        frame.add(myHeaderSpacing2);
+        frame.add(lblSurname);
+        frame.add(txtsurname);
+        frame.add(myHeaderSpacing3);
+        frame.add(lblcell);
+        frame.add(txtcell);
+        frame.add(myHeaderSpacing4);
+        frame.add(lblemail);
+        frame.add(txtemail);
+        frame.add(myHeaderSpacing5);
+        frame.add(lblBookings);
+        frame.add(myheaderLabel);
+        frame.add(lblBooking);
+        lblBooking.setBounds(10, 20, 900, 70);
+        lblBooking.setFont(new Font(null, Font.PLAIN,25));
+        lblCustomerName.setBounds(10, 20, 900, 120);
+        lblCustomerName.setFont(new Font(null, Font.PLAIN,25));
+        txtCustomerName.setBounds(180, 70, 150, 120);
+        frame.add(myHeaderSpace1);
+        frame.add(lblCustomerName);
+        frame.add(txtCustomerName);
+        frame.add(lbladdVenue);
+        frame.add(txtaddVenue);
+        frame.add(btnUpdate);
+        frame.add(btnReset);
+        frame.add(btnExit);
+        frame.add(blank1);
+        frame.add(blank2);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1420,700);
         frame.setLayout(null);
         frame.setVisible(true);
-        dbConnect.derbyConnection();
-       ///////////////////////////LOOOOKS OF GUI////////////////////////////////
+    /*  
+    myHeaderSpacing = new JLabel();
+      ///ICON//
+      ImageIcon rog1 = new ImageIcon(new ImageIcon("21.png").getImage().getScaledInstance(120, 90, Image.SCALE_DEFAULT));
+      ///ICON//
+      myheaderLabel = new JLabel("HOSITAL RECORDS");
+      myheaderLabel.setHorizontalAlignment(JLabel.CENTER);
+      myHeaderSpace1 = new JLabel(rog1); 
       
-      
+      blank1 = new JLabel ("");
+      lbldisplaycount = new JLabel ("");
+      blank2 = new JLabel ("");
+      lblTitle = new JLabel ("Title: ");
+      cboTitle = new JComboBox ();
+      lblErrorOnTitleSpace = new JLabel("");
       
       lblFirstName = new JLabel ("First Name:   ");
       txtFirstName = new JTextField (15);
+      lblOnFirstNameSpace = new JLabel("*Required*");
+       
+      lblLastName = new JLabel ("Last Name:   ");
+      txtLastName = new JTextField (15);
+      lblErrorOnLastName = new JLabel ("*Required*");
+       
+      lblGender = new JLabel ("Gender: ");
+      radMale = new JRadioButton ("Male");
+      radFemale = new JRadioButton ("Female");
+
       
        
-      lblSurname = new JLabel ("Surname:   ");
-      txtSurname = new JTextField (15);
-      
-      
-      lblCell = new JLabel ("Cell:   ");
-      txtCell = new JTextField (15);
-      
-      lblEmail = new JLabel ("Email:   ");
-      txtEmail = new JTextField (15);
-      
+      lblPensioner = new JLabel ("Pensioner: ");
+      chkPensioner = new JCheckBox ();
+      myspacer2 = new JLabel("");
+       
+       
+       btnPrevious = new JButton ("Previous");
+       btnPrevious.setBackground(Color.GREEN);
+       btnNext = new JButton ("Next");
+       btnNext.setBackground(Color.GREEN);
        
        btnExit = new JButton ("Exit");
-       btnExit.setBackground(Color.BLACK);
-       
-       btnUpdate = new JButton ("Update");
-       btnUpdate.setBackground(Color.YELLOW);
-       
-       
-       btnReset = new JButton ("Reset");
-       btnRefresh.setBackground(Color.MAGENTA);
-       
-       
-       btnRefresh = new JButton ("Refresh");
-       btnRefresh.setBackground(Color.ORANGE);
+       btnExit.setBackground(Color.GREEN);*/
     }
-    ////////////////////////*SETTTTINGGGG GUUUIIIII////////////////////////////////////////////////// 
-   public void setUsers(){
-                              
-      this.setLayout(new GridLayout(12, 3));
-
-
+    public void setUser(){
+        this.add(frame);
+        this.add(welcomeLabel);
+       // frame.add(panelnorth);
+       // frame.add(panelsouth);
+      //  frame.add(paneleast);
+       // frame.add(panelwest);
+        frame.add(myheaderLabel);
+        frame.add(lblNewuser);
+        frame.add(myHeaderSpace1);
+        frame.add(lblfname);
+        frame.add(txtfname);
+        frame.add(lblSurname);
+        frame.add(txtsurname);
+        frame.add(myHeaderSpacing1);
+        frame.add(lblcell);
+        frame.add(txtcell);
+        frame.add(myHeaderSpacing2);
+        frame.add(lblemail);
+        frame.add(txtemail);
+        frame.add(myHeaderSpacing4);
+        frame.add(lblBooking);
+        frame.add(myHeaderSpace1);
+        frame.add(lblCustomerName);
+        frame.add(txtCustomerName);
+        frame.add(lbladdVenue);
+        frame.add(txtaddVenue);
+        frame.add(myHeaderSpace2);
+        frame.add(lblDate);
+        frame.add(txtDate);
+        frame.add(myHeaderSpace3);
+        frame.add(lblBookings);
+        frame.add(myHeaderSpacing5);
+        frame.add(tblVenues);
+        frame.add(cboInvoice);
+        frame.add(btnUpdate);
+        frame.add(btnReset);
+        frame.add(btnExit);
+        frame.add(blank1);
+        frame.add(blank2);
+        this.setVisible(true);
+    /*
+    this.setLayout(new GridLayout(9, 3));
+      
+      this.add(myHeaderSpace1);
+      this.add(myheaderLabel);
+      this.add(myHeaderSpacing);
+      
+      
+      this.add(blank1);
+      this.add(lbldisplaycount);
+      this.add(blank2);
+      this.add(lblTitle);
+      this.add(cboTitle);
+      
+      cboTitle.addItem("Miss");
+      cboTitle.addItem("Mr");
+      cboTitle.addItem("Mrs");
+     
+      this.add(lblErrorOnTitleSpace);
       ///FIRSTNAME///
       this.add(lblFirstName);
       this.add(txtFirstName);
-
-      ///Surname////
-      this.add(lblErrorSurname);
-      this.add(txtSurname);
-      //this.add(lblErrorOnSurname);
-      
-      
-      ///Cell////
-      this.add(lblErrorCell);
-      this.add(txtCell);
-      //this.add(lblErrorOnCell);
-       
-      
-      ///Email////
-      this.add(lblErrorEmail);
-      this.add(txtEmail);
-      //this.add(lblErrorOnEmail);
-      
-      
+      this.add(lblOnFirstNameSpace);
+      ///LASTNAME////
+      this.add(lblLastName);
+      this.add(txtLastName);
+      this.add(lblErrorOnLastName);
+       ////GENDER///
+      this.add(lblGender);
+      this.add(radMale);
+      this.add(radFemale);
+      ////PENSIONER///
+      this.add(lblPensioner);
+      this.add(chkPensioner);
+      ///BUTTONS///
+      this.add(myspacer2);
+      this.add(btnPrevious);
+      this.add(btnNext);
       this.add(btnExit);
-      this.add(btnUpdate);
-      this.add(btnReset);
-      this.add(btnRefresh);
       
       /////BUTTONS ACTIONLISTENERS///
+        btnPrevious.addActionListener(this);
+        btnNext.addActionListener(this);
         btnExit.addActionListener(this);
-        btnUpdate.addActionListener(this);
-        btnReset.addActionListener(this);
-        btnRefresh.addActionListener(this);
         
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
+        
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+    */
+    
+    
+    }
+    
+    public void actionPerformed(ActionEvent i){
+        if (i.getActionCommand().equals("Previous")){
+
+         
+     } else if(i.getActionCommand().equals("Next")){
+
+         
+     } if (i.getActionCommand().equals("Exit")){
+         System.exit(0);
+     }
    }
 
-  ///////////////////// BUTTTTTTTTONNNNNN ACTTTTIOOOOOONS///////////////////////////////////////////
-   public void actionPerformed(ActionEvent i){
-       
-       
-   }
-   public static void main(String[] args) {
-        new Users().setUsers();
+    public static void main(String[] args) {
+        new Users().setUser();
     }
+      
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////// END OF PROGRAM /////////////////////////////////////////////////
