@@ -17,7 +17,7 @@ import java.util.ListIterator;
 public class Admin extends JFrame implements ActionListener {
     
     JFrame frame = new JFrame();
-    JLabel welcomeLabel = new JLabel("Admin Class Fuctions Goes Here!");
+    JLabel welcomeLabel = new JLabel("");
     JPanel panelnorth = new JPanel();
     JPanel panelsouth = new JPanel();
     JPanel paneleast = new JPanel();
@@ -64,13 +64,52 @@ public class Admin extends JFrame implements ActionListener {
     JLabel blank2 = new JLabel("");
     
     public Admin(){
-        welcomeLabel.setBounds(0,0,900,50);
-        welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
+        welcomeLabel.setBounds(650,0,900,50);
+        welcomeLabel.setFont(new Font(null, Font.PLAIN,18));
+        ////New Venue
         lblVenue.setBounds(10, 20, 900, 70);
-        lblVenue.setFont(new Font(null, Font.PLAIN,25));
-        lblVenueName.setBounds(10, 20, 900, 120);
-        lblVenueName.setFont(new Font(null, Font.PLAIN,25));
-        txtVenueName.setBounds(180, 70, 150, 120);
+        lblVenue.setFont(new Font(null, Font.PLAIN,18));
+        lblVenueName.setBounds(10, 20, 900, 160);
+        lblVenueName.setFont(new Font(null, Font.PLAIN,18));
+        txtVenueName.setBounds(160, 80, 150, 0);
+        txtVenueName.setSize(250, 50);
+        lblVenueAdd.setBounds(10, 20, 900, 300);
+        lblVenueAdd.setFont(new Font(null, Font.PLAIN,18));
+        txtVenueAdd.setBounds(160, 150, 150, 0);
+        txtVenueAdd.setSize(250, 50);
+        //// New User
+        lblNewuser.setBounds(10, 20, 900, 550);
+        lblNewuser.setFont(new Font(null, Font.PLAIN,18));
+        lblutype.setBounds(10, 20, 900, 670);
+        lblutype.setFont(new Font(null, Font.PLAIN,18));
+        cboutype.setBounds(160, 330, 900, 0);
+        cboutype.setSize(200 , 50);
+        cboutype.setBackground(Color.GRAY);
+        cboutype.setFont(new Font(null, Font.PLAIN,18));
+        lblfirstName.setBounds(10, 20, 900, 800);
+        lblfirstName.setFont(new Font(null, Font.PLAIN,18));
+        txtfirstName.setBounds(160, 400, 150, 0);
+        txtfirstName.setSize(250, 50);
+        lblpassword.setBounds(10, 20, 900, 940);
+        lblpassword.setFont(new Font(null, Font.PLAIN,18));
+        txtpassword.setBounds(160, 470, 150, 0);
+        txtpassword.setSize(250, 50);
+        ////////venues
+        lblVenues.setBounds(700, 20, 900, 70);
+        lblVenues.setFont(new Font(null, Font.PLAIN,18));
+        tblVenues.setBounds(700, 90, 900, 0);
+        tblVenues.setSize(400,300);
+        tblVenues.setBackground(Color.GRAY);
+        ///////iNACTIVE
+        lblinactive.setBounds(700, 20, 900, 940);
+        lblinactive.setFont(new Font(null, Font.PLAIN,18));
+        cboinactive.setBounds(850, 470, 900, 940);
+        cboinactive.setSize(200 , 50);
+        cboinactive.setBackground(Color.GRAY);
+        
+        
+        
+        
         frame.add(welcomeLabel);
         frame.add(panelnorth);
         frame.add(panelsouth);
@@ -88,6 +127,8 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(myHeaderSpacing1);
         frame.add(lblutype);
         frame.add(cboutype);
+        cboutype.addItem("-----");
+        cboutype.addItem("User");
         frame.add(myHeaderSpacing2);
         frame.add(lblfirstName);
         frame.add(txtfirstName);
@@ -105,7 +146,7 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(blank2);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1420,700);
+        frame.setSize(1420,800);
         frame.setLayout(null);
         frame.setVisible(true);
     /*  
