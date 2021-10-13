@@ -9,18 +9,29 @@ import DBConnection.dbConnect;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import static java.util.Collections.sort;
+import java.util.ListIterator;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import worker.CWorker;
 import za.ac.cput.adpfinalproj.clientgui.Admin;
 import za.ac.cput.adpfinalproj.clientgui.Users;
+import Server.ServerCL;
+import static com.sun.tools.sjavac.Util.set;
+import static java.lang.reflect.Array.set;
 import java.sql.SQLException;
 /**
  *CGui.java
@@ -91,7 +102,7 @@ ResultSet ra = null;
    
     }
    ////////////////////////*SETTTTINGGGG GUUUIIIII////////////////////////////////////////////////// 
-   public void setGUI(){
+   public void setCGUI(){
                               
       this.setLayout(new GridLayout(12, 3));
       
@@ -130,6 +141,8 @@ ResultSet ra = null;
    }
 
   ///////////////////// BUTTTTTTTTONNNNNN ACTTTTIOOOOOONS///////////////////////////////////////////
+
+    @Override
    public void actionPerformed(ActionEvent e){
        String login= "SELECT * FROM multilogin WHERE firstname=? AND passw=? AND utype=?" ;
        try{
@@ -137,23 +150,15 @@ ResultSet ra = null;
            ps.setString(1, txtFirstName.getText());
            ps.setString(2, txtPassword.getText());
            ps.setString(3, (String) cboTitle.getSelectedItem());
-           ra= ps.executeQuery();
+           ra= ps.executeQuery();         
            
            
-           
-           if(ra.next())
-            {
-               JOptionPane.showMessageDialog(this, "Welcome  "+ra.getString("utype"));
-               if(cboTitle.getSelectedIndex()==0){
-                   Admin a = new Admin();
-                   a.setVisible(true);
-                   this.setVisible(false);
-               }else{
-                   Users b = new Users();
-                   b.setVisible(true);
-                   this.setVisible(false);
-                   
-                   
+           if(ra.next()){
+              JOptionPane.showMessageDialog(this, "Welcome  "+ra.getString("utype"));
+               if(cboTitle.getSelectedIndex()==0){ 
+                   Admin ad = new Admin();
+               }else{ 
+                   Users mi = new Users();
                }
             }else {
                JOptionPane.showMessageDialog(null, "Login Failed!");
@@ -163,7 +168,8 @@ ResultSet ra = null;
        }
    }
    public static void main(String[] args) {
-        new CGui().setGUI();
+        new CGui().setCGUI();
+       
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////
