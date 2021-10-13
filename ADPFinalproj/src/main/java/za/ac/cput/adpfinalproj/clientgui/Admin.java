@@ -84,7 +84,7 @@ public class Admin extends JFrame implements ActionListener {
         lblutype.setFont(new Font(null, Font.PLAIN,18));
         cboutype.setBounds(160, 330, 900, 0);
         cboutype.setSize(200 , 50);
-        cboutype.setBackground(Color.GRAY);
+        cboutype.setBackground(Color.LIGHT_GRAY);
         cboutype.setFont(new Font(null, Font.PLAIN,18));
         lblfirstName.setBounds(10, 20, 900, 800);
         lblfirstName.setFont(new Font(null, Font.PLAIN,18));
@@ -98,14 +98,21 @@ public class Admin extends JFrame implements ActionListener {
         lblVenues.setBounds(700, 20, 900, 70);
         lblVenues.setFont(new Font(null, Font.PLAIN,18));
         tblVenues.setBounds(700, 90, 900, 0);
-        tblVenues.setSize(400,300);
-        tblVenues.setBackground(Color.GRAY);
+        tblVenues.setSize(500,300);
+        tblVenues.setBackground(Color.LIGHT_GRAY);
         ///////iNACTIVE
         lblinactive.setBounds(700, 20, 900, 940);
         lblinactive.setFont(new Font(null, Font.PLAIN,18));
         cboinactive.setBounds(850, 470, 900, 940);
         cboinactive.setSize(200 , 50);
-        cboinactive.setBackground(Color.GRAY);
+        cboinactive.setBackground(Color.LIGHT_GRAY);
+        /////// BUTTONS
+        btnUpdate.setBounds(300, 600 , 150, 0);
+        btnUpdate.setSize(100, 40);
+        btnReset.setBounds(550, 600 , 150, 0);
+        btnReset.setSize(100, 40);
+        btnExit.setBounds(800, 600 , 150, 0);
+        btnExit.setSize(100, 40);
         
         
         
@@ -146,7 +153,7 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(blank2);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1420,800);
+        frame.setSize(1250,700);
         frame.setLayout(null);
         frame.setVisible(true);
     /*  
@@ -281,12 +288,12 @@ public class Admin extends JFrame implements ActionListener {
     
     
     }
-    
+    @Override
     public void actionPerformed(ActionEvent e){
-        if (e.getActionCommand().equals("Previous")){
+        if (e.getActionCommand().equals("Update")){
 
          
-     } else if(e.getActionCommand().equals("Next")){
+     } else if(e.getActionCommand().equals("Reset")){
 
          
      } if (e.getActionCommand().equals("Exit")){
