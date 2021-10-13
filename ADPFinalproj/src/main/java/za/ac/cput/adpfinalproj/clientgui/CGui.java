@@ -79,7 +79,7 @@ ResultSet ra = null;
       ///ICON//
       ImageIcon rog1 = new ImageIcon(new ImageIcon("").getImage().getScaledInstance(120, 90, Image.SCALE_DEFAULT));
       ///ICON//
-      myheaderLabel = new JLabel("JK.CO Login");
+      myheaderLabel = new JLabel("JK.CO BOOKINGS");
       myheaderLabel.setHorizontalAlignment(JLabel.CENTER);
       myHeaderSpace1 = new JLabel(rog1); 
       
@@ -157,8 +157,10 @@ ResultSet ra = null;
               JOptionPane.showMessageDialog(this, "Welcome  "+ra.getString("utype"));
                if(cboTitle.getSelectedIndex()==0){ 
                    Admin ad = new Admin();
+                   dispose();
                }else{ 
                    Users mi = new Users();
+                   dispose();
                }
             }else {
                JOptionPane.showMessageDialog(null, "Login Failed!");
