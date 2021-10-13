@@ -17,7 +17,7 @@ import java.util.ListIterator;
 public class Admin extends JFrame implements ActionListener {
     
     JFrame frame = new JFrame();
-    JLabel welcomeLabel = new JLabel("Admin Class!");
+    JLabel welcomeLabel = new JLabel("");
     JPanel panelnorth = new JPanel();
     JPanel panelsouth = new JPanel();
     JPanel paneleast = new JPanel();
@@ -94,6 +94,21 @@ public class Admin extends JFrame implements ActionListener {
         lblpassword.setFont(new Font(null, Font.PLAIN,18));
         txtpassword.setBounds(160, 470, 150, 0);
         txtpassword.setSize(250, 50);
+        ////////venues
+        lblVenues.setBounds(700, 20, 900, 70);
+        lblVenues.setFont(new Font(null, Font.PLAIN,18));
+        tblVenues.setBounds(700, 90, 900, 0);
+        tblVenues.setSize(400,300);
+        tblVenues.setBackground(Color.GRAY);
+        ///////iNACTIVE
+        lblinactive.setBounds(700, 20, 900, 940);
+        lblinactive.setFont(new Font(null, Font.PLAIN,18));
+        cboinactive.setBounds(850, 470, 900, 940);
+        cboinactive.setSize(200 , 50);
+        cboinactive.setBackground(Color.GRAY);
+        
+        
+        
         
         frame.add(welcomeLabel);
         frame.add(panelnorth);
@@ -131,7 +146,7 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(blank2);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1420,700);
+        frame.setSize(1420,800);
         frame.setLayout(null);
         frame.setVisible(true);
     /*  
