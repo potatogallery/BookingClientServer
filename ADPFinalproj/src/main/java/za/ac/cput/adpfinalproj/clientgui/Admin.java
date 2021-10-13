@@ -10,6 +10,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import static java.util.Collections.sort;
 import java.util.ListIterator;
+import za.ac.cput.adpfinalproj.clientgui.CGui;
 /**
  *
  * @author POTATOE
@@ -54,7 +55,8 @@ public class Admin extends JFrame implements ActionListener {
     //////////////////BUTTONS FOR Update,Reset OR EXIT/////////////////////
     JButton btnUpdate = new JButton("Update");
     JButton btnReset = new JButton("Reset");
-    JButton btnExit = new JButton("Exit");
+    JButton btnSO = new JButton("Sign Out");
+    
     
     JLabel blank1 = new JLabel("");
     JLabel blank2 = new JLabel("");
@@ -122,8 +124,8 @@ public class Admin extends JFrame implements ActionListener {
         btnUpdate.setSize(100, 40);
         btnReset.setBounds(550, 600 , 150, 0);
         btnReset.setSize(100, 40);
-        btnExit.setBounds(800, 600 , 150, 0);
-        btnExit.setSize(100, 40);
+        btnSO.setBounds(800, 600 , 150, 0);
+        btnSO.setSize(100, 40);
         
         
         
@@ -155,7 +157,7 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(cboinactive);
         frame.add(btnUpdate);
         frame.add(btnReset);
-        frame.add(btnExit);
+        frame.add(btnSO);
         frame.add(blank1);
         frame.add(blank2);
 
@@ -192,12 +194,16 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(cboinactive);
         frame.add(btnUpdate);
         frame.add(btnReset);
-        frame.add(btnExit);
+        frame.add(btnSO);
         frame.add(blank1);
         frame.add(blank2);
+        
+        btnUpdate.addActionListener(this);
+        btnReset.addActionListener(this);
+        btnSO.addActionListener(this);
+        
         this.setVisible(true);
-    
-    
+
     }
     @Override
     public void actionPerformed(ActionEvent e){
@@ -207,8 +213,10 @@ public class Admin extends JFrame implements ActionListener {
      } else if(e.getActionCommand().equals("Reset")){
                 
          
-     } else if(e.getActionCommand().equals("Exit")){
-         System.exit(0);
+     } else if(e.getActionCommand().equals("Sign Out")){
+         JOptionPane.showMessageDialog(this, "Signing You Out");
+         CGui mm = new CGui();
+                   dispose();
      }
    }
 
