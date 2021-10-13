@@ -10,9 +10,11 @@ import java.awt.Font;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Server.ServerCL;
 /**
  *
- * @author POTATOE
+ * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
  */
 public class Users extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
