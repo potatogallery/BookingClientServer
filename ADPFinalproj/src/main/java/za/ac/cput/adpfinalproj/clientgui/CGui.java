@@ -30,6 +30,8 @@ import worker.CWorker;
 import za.ac.cput.adpfinalproj.clientgui.Admin;
 import za.ac.cput.adpfinalproj.clientgui.Users;
 import Server.ServerCL;
+import static com.sun.tools.sjavac.Util.set;
+import static java.lang.reflect.Array.set;
 import java.sql.SQLException;
 /**
  *CGui.java
@@ -100,7 +102,7 @@ ResultSet ra = null;
    
     }
    ////////////////////////*SETTTTINGGGG GUUUIIIII////////////////////////////////////////////////// 
-   public void setGUI(){
+   public void setCGUI(){
                               
       this.setLayout(new GridLayout(12, 3));
       
@@ -153,13 +155,11 @@ ResultSet ra = null;
             {
                JOptionPane.showMessageDialog(this, "Welcome  "+ra.getString("utype"));
                if(cboTitle.getSelectedIndex()==0){
-                   Admin a = new Admin();
-                   a.setVisible(true);
-                   this.setVisible(false);
+                  Admin a = new Admin(); 
+                  
                }else{
                    Users b = new Users();
-                   b.setVisible(true);
-                   this.setVisible(false);
+                   
                }
             }else {
                JOptionPane.showMessageDialog(null, "Login Failed!");
@@ -169,7 +169,7 @@ ResultSet ra = null;
        }
    }
    public static void main(String[] args) {
-        new CGui().setGUI();
+        new CGui().setCGUI();
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////

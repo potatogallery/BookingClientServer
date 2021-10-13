@@ -5,28 +5,38 @@
  */
 package za.ac.cput.adpfinalproj.clientgui;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 /**
  *
  * @author POTATOE
  */
-public class Admin extends JFrame {
+public class Admin extends JFrame implements ActionListener {
+    
+    
+    
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("Admin Class Action goes here!");
     JLabel blank = new JLabel("");
     JLabel newVLabel = new JLabel("New Venue:");
     
     public Admin(){
+       
+        
+        
+        
+        
         /*
         welcomeLabel.setBounds(0,0,900,50);
         welcomeLabel.setFont(new Font(null, Font.PLAIN,20));
         blank.setBounds(0,0,900,50);
         newVLabel.setBounds(0,0,900,50);
         newVLabel.setFont(new Font(null, Font.PLAIN,15));
+        
+        
         */
-        
-        
         frame.add(welcomeLabel);
         frame.add(blank);
         frame.add(newVLabel);
@@ -35,17 +45,24 @@ public class Admin extends JFrame {
         frame.setLayout(null);
         frame.setVisible(true);
     }
-    public void setGUI(){
+    public void setAdmin(){
     
-    this.add(welcomeLabel);
+    this.add(frame);
+    frame.add(welcomeLabel);
     frame.add(blank);
     frame.add(newVLabel);
-    this.add(frame);
+    
     
     
     }
+    
+    public void actionPerformed(ActionEvent e){
+        
+        
+        
+    }
     public static void main(String[] args) {
-        new Admin().setGUI();
+        new Admin().setAdmin();
     }
     
 }
