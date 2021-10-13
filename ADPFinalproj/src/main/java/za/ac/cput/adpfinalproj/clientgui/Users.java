@@ -10,7 +10,6 @@ import java.awt.Font;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import Server.ServerCL;
 /**
  *
  * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
@@ -83,20 +82,20 @@ public class Users extends JFrame implements ActionListener {
         lblNewuser.setFont(new Font(null, Font.PLAIN,17));
         lblfname.setBounds(10, 20, 900, 160);
         lblfname.setFont(new Font(null, Font.PLAIN,17));
-        txtfname.setBounds(160, 330, 900, 0);
-        txtfname.setSize(250 , 40);
+        txtfname.setBounds(160, 330, 900, 160);
+        txtfname.setSize(250 , 30);
         lblSurname.setBounds(10, 20, 900, 250);
         lblSurname.setFont(new Font(null, Font.PLAIN,17));
-        txtsurname.setBounds(160, 400, 150, 0);
-        txtsurname.setSize(250, 50);
+        txtsurname.setBounds(160, 400, 150, 250);
+        txtsurname.setSize(250, 30);
         lblcell.setBounds(10, 20, 900, 340);
         lblcell.setFont(new Font(null, Font.PLAIN,17));
-        txtcell.setBounds(160, 470, 150, 0);
-        txtcell.setSize(250, 50);
+        txtcell.setBounds(160, 470, 150, 340);
+        txtcell.setSize(250, 30);
         lblemail.setBounds(10, 20, 900, 430);
         lblemail.setFont(new Font(null, Font.PLAIN,17));
-        txtemail.setBounds(160, 470, 150, 0);
-        txtemail.setSize(250, 50);
+        txtemail.setBounds(160, 470, 150, 430);
+        txtemail.setSize(250, 30);
         
         
         ////New Booking
@@ -104,27 +103,27 @@ public class Users extends JFrame implements ActionListener {
         lblBooking.setFont(new Font(null, Font.PLAIN,18));
         lblCustomerName.setBounds(10, 20, 900, 600);
         lblCustomerName.setFont(new Font(null, Font.PLAIN,17));
-        txtCustomerName.setBounds(160, 80, 150, 0);
-        txtCustomerName.setSize(250, 50);
+        txtCustomerName.setBounds(160, 80, 150, 600);
+        txtCustomerName.setSize(250, 30);
         lbladdVenue.setBounds(10, 20, 900, 660);
         lbladdVenue.setFont(new Font(null, Font.PLAIN,17));
-        txtaddVenue.setBounds(160, 150, 150, 0);
-        txtaddVenue.setSize(250, 50);
+        txtaddVenue.setBounds(160, 150, 150, 660);
+        txtaddVenue.setSize(250, 30);
         lblDate.setBounds(10, 20, 900, 730);
         lblDate.setFont(new Font(null,Font.PLAIN,17));
-        txtDate.setBounds(160, 210, 150, 0);
-        txtDate.setSize(250, 50);
+        txtDate.setBounds(160, 210, 150, 730);
+        txtDate.setSize(250, 30);
         
         ////////Bookings
         lblBookings.setBounds(700, 20, 900, 70);
         lblBookings.setFont(new Font(null, Font.PLAIN,18));
         tblVenues.setBounds(700, 90, 900, 0);
-        tblVenues.setSize(400,300);
+        tblVenues.setSize(600,300);
         tblVenues.setBackground(Color.GRAY);
         lblInvoice.setBounds(700, 90, 900, 390);
         lblInvoice.setFont(new Font(null, Font.PLAIN,18));
-        cboInvoice.setBounds(950, 280, 150, 0);
-        cboInvoice.setSize(200, 50);
+        cboInvoice.setBounds(950, 280, 150, 390);
+        cboInvoice.setSize(200, 30);
         
         
         frame.add(welcomeLabel);
@@ -132,6 +131,7 @@ public class Users extends JFrame implements ActionListener {
         frame.add(panelsouth);
         frame.add(paneleast);
         frame.add(panelwest);
+        
         ////New Customer
         frame.add(myHeaderSpace1);
         frame.add(lblNewuser);
