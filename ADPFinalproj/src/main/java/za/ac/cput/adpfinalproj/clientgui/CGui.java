@@ -136,6 +136,7 @@ ResultSet ra = null;
         
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.pack();
+        this.setSize(350,500);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
    }

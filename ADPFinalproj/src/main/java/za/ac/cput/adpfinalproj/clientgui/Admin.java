@@ -26,7 +26,7 @@ public class Admin extends JFrame implements ActionListener {
     
     //////////////////New Venue/////////////////
     JLabel lblVenue = new JLabel("New Venue");
-    JLabel myHeaderSpace1 = new JLabel("");
+    JLabel myHeaderSpace1 = new JLabel("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     JLabel lblVenueName = new JLabel("Venue Name:");
     JTextField txtVenueName = new JTextField();
     JLabel lblVenueAdd = new JLabel("Venue Address:");
@@ -60,12 +60,22 @@ public class Admin extends JFrame implements ActionListener {
     JLabel blank2 = new JLabel("");
     
     public Admin(){
+        
+        String[] columnNames = {"",""};
+        Object[][] var = {{"Groove", "31 East Rd Cape Town"},
+                          {"Okahh", "96 Breek St Cape Town"},
+                          {"The Goddess", "12 Loft Rd Pretoria"}};
+        tblVenues = new JTable(var, columnNames );
+         
         welcomeLabel.setBounds(500,0,900,30);
         welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
         welcomeLabel.setForeground(Color.BLUE);
+        myHeaderSpace1.setBounds(0,0,1230,65);
+        myHeaderSpace1.setForeground(Color.BLUE);
         ////New Venue
         lblVenue.setBounds(10, 20, 900, 70);
         lblVenue.setFont(new Font(null, Font.PLAIN,18));
+        lblVenue.setForeground(Color.RED);
         lblVenueName.setBounds(10, 20, 900, 160);
         lblVenueName.setFont(new Font(null, Font.PLAIN,18));
         txtVenueName.setBounds(160, 80, 150, 0);
@@ -77,11 +87,12 @@ public class Admin extends JFrame implements ActionListener {
         //// New User
         lblNewuser.setBounds(10, 20, 900, 550);
         lblNewuser.setFont(new Font(null, Font.PLAIN,18));
+        lblNewuser.setForeground(Color.RED);
         lblutype.setBounds(10, 20, 900, 670);
         lblutype.setFont(new Font(null, Font.PLAIN,18));
         cboutype.setBounds(160, 330, 900, 0);
         cboutype.setSize(200 , 50);
-        cboutype.setBackground(Color.LIGHT_GRAY);
+        cboutype.setBackground(Color.WHITE);
         cboutype.setFont(new Font(null, Font.PLAIN,18));
         lblfirstName.setBounds(10, 20, 900, 800);
         lblfirstName.setFont(new Font(null, Font.PLAIN,18));
@@ -94,15 +105,18 @@ public class Admin extends JFrame implements ActionListener {
         ////////venues
         lblVenues.setBounds(700, 20, 900, 70);
         lblVenues.setFont(new Font(null, Font.PLAIN,18));
+        lblVenues.setForeground(Color.RED);
         tblVenues.setBounds(700, 90, 900, 0);
-        tblVenues.setSize(500,300);
-        tblVenues.setBackground(Color.LIGHT_GRAY);
+        tblVenues.setSize(500,350);
+        ///tblVenues.setBorder();
+        tblVenues.setBackground(Color.WHITE);
         ///////iNACTIVE
         lblinactive.setBounds(700, 20, 900, 940);
         lblinactive.setFont(new Font(null, Font.PLAIN,18));
+        lblinactive.setForeground(Color.RED);
         cboinactive.setBounds(850, 470, 900, 940);
         cboinactive.setSize(200 , 50);
-        cboinactive.setBackground(Color.LIGHT_GRAY);
+        cboinactive.setBackground(Color.WHITE);
         /////// BUTTONS
         btnUpdate.setBounds(300, 600 , 150, 0);
         btnUpdate.setSize(100, 40);
@@ -127,7 +141,7 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(myHeaderSpacing1);
         frame.add(lblutype);
         frame.add(cboutype);
-        cboutype.addItem("-----");
+        
         cboutype.addItem("User");
         frame.add(myHeaderSpacing2);
         frame.add(lblfirstName);
