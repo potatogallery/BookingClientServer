@@ -17,11 +17,7 @@ import java.util.ListIterator;
 public class Admin extends JFrame implements ActionListener {
     
     JFrame frame = new JFrame();
-    JLabel welcomeLabel = new JLabel("");
-    JPanel panelnorth = new JPanel();
-    JPanel panelsouth = new JPanel();
-    JPanel paneleast = new JPanel();
-    JPanel panelwest = new JPanel();
+    JLabel welcomeLabel = new JLabel("JK.CO (ADMIN)");
     /////////////////////////Title//////////////////////////
     JLabel myheaderLabel = new JLabel("");
     /*JLabel lblTitle = new JLabel("");
@@ -64,8 +60,9 @@ public class Admin extends JFrame implements ActionListener {
     JLabel blank2 = new JLabel("");
     
     public Admin(){
-        welcomeLabel.setBounds(650,0,900,50);
-        welcomeLabel.setFont(new Font(null, Font.PLAIN,18));
+        welcomeLabel.setBounds(500,0,900,30);
+        welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
+        welcomeLabel.setForeground(Color.BLUE);
         ////New Venue
         lblVenue.setBounds(10, 20, 900, 70);
         lblVenue.setFont(new Font(null, Font.PLAIN,18));
@@ -84,7 +81,7 @@ public class Admin extends JFrame implements ActionListener {
         lblutype.setFont(new Font(null, Font.PLAIN,18));
         cboutype.setBounds(160, 330, 900, 0);
         cboutype.setSize(200 , 50);
-        cboutype.setBackground(Color.GRAY);
+        cboutype.setBackground(Color.LIGHT_GRAY);
         cboutype.setFont(new Font(null, Font.PLAIN,18));
         lblfirstName.setBounds(10, 20, 900, 800);
         lblfirstName.setFont(new Font(null, Font.PLAIN,18));
@@ -98,23 +95,26 @@ public class Admin extends JFrame implements ActionListener {
         lblVenues.setBounds(700, 20, 900, 70);
         lblVenues.setFont(new Font(null, Font.PLAIN,18));
         tblVenues.setBounds(700, 90, 900, 0);
-        tblVenues.setSize(400,300);
-        tblVenues.setBackground(Color.GRAY);
+        tblVenues.setSize(500,300);
+        tblVenues.setBackground(Color.LIGHT_GRAY);
         ///////iNACTIVE
         lblinactive.setBounds(700, 20, 900, 940);
         lblinactive.setFont(new Font(null, Font.PLAIN,18));
         cboinactive.setBounds(850, 470, 900, 940);
         cboinactive.setSize(200 , 50);
-        cboinactive.setBackground(Color.GRAY);
+        cboinactive.setBackground(Color.LIGHT_GRAY);
+        /////// BUTTONS
+        btnUpdate.setBounds(300, 600 , 150, 0);
+        btnUpdate.setSize(100, 40);
+        btnReset.setBounds(550, 600 , 150, 0);
+        btnReset.setSize(100, 40);
+        btnExit.setBounds(800, 600 , 150, 0);
+        btnExit.setSize(100, 40);
         
         
         
         
         frame.add(welcomeLabel);
-        frame.add(panelnorth);
-        frame.add(panelsouth);
-        frame.add(paneleast);
-        frame.add(panelwest);
         frame.add(myheaderLabel);
         frame.add(lblVenue);
         frame.add(myHeaderSpace1);
@@ -145,60 +145,15 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(blank1);
         frame.add(blank2);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1420,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        frame.setSize(1230,700);
         frame.setLayout(null);
         frame.setVisible(true);
-    /*  
-    myHeaderSpacing = new JLabel();
-      ///ICON//
-      ImageIcon rog1 = new ImageIcon(new ImageIcon("21.png").getImage().getScaledInstance(120, 90, Image.SCALE_DEFAULT));
-      ///ICON//
-      myheaderLabel = new JLabel("HOSITAL RECORDS");
-      myheaderLabel.setHorizontalAlignment(JLabel.CENTER);
-      myHeaderSpace1 = new JLabel(rog1); 
-      
-      blank1 = new JLabel ("");
-      lbldisplaycount = new JLabel ("");
-      blank2 = new JLabel ("");
-      lblTitle = new JLabel ("Title: ");
-      cboTitle = new JComboBox ();
-      lblErrorOnTitleSpace = new JLabel("");
-      
-      lblFirstName = new JLabel ("First Name:   ");
-      txtFirstName = new JTextField (15);
-      lblOnFirstNameSpace = new JLabel("*Required*");
-       
-      lblLastName = new JLabel ("Last Name:   ");
-      txtLastName = new JTextField (15);
-      lblErrorOnLastName = new JLabel ("*Required*");
-       
-      lblGender = new JLabel ("Gender: ");
-      radMale = new JRadioButton ("Male");
-      radFemale = new JRadioButton ("Female");
-
-      
-       
-      lblPensioner = new JLabel ("Pensioner: ");
-      chkPensioner = new JCheckBox ();
-      myspacer2 = new JLabel("");
-       
-       
-       btnPrevious = new JButton ("Previous");
-       btnPrevious.setBackground(Color.GREEN);
-       btnNext = new JButton ("Next");
-       btnNext.setBackground(Color.GREEN);
-       
-       btnExit = new JButton ("Exit");
-       btnExit.setBackground(Color.GREEN);*/
+    
     }
     public void setAdmin(){
         this.add(frame);
         this.add(welcomeLabel);
-       // frame.add(panelnorth);
-       // frame.add(panelsouth);
-      //  frame.add(paneleast);
-       // frame.add(panelwest);
         frame.add(myheaderLabel);
         frame.add(lblVenue);
         frame.add(myHeaderSpace1);
@@ -227,69 +182,18 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(blank1);
         frame.add(blank2);
         this.setVisible(true);
-    /*
-    this.setLayout(new GridLayout(9, 3));
-      
-      this.add(myHeaderSpace1);
-      this.add(myheaderLabel);
-      this.add(myHeaderSpacing);
-      
-      
-      this.add(blank1);
-      this.add(lbldisplaycount);
-      this.add(blank2);
-      this.add(lblTitle);
-      this.add(cboTitle);
-      
-      cboTitle.addItem("Miss");
-      cboTitle.addItem("Mr");
-      cboTitle.addItem("Mrs");
-     
-      this.add(lblErrorOnTitleSpace);
-      ///FIRSTNAME///
-      this.add(lblFirstName);
-      this.add(txtFirstName);
-      this.add(lblOnFirstNameSpace);
-      ///LASTNAME////
-      this.add(lblLastName);
-      this.add(txtLastName);
-      this.add(lblErrorOnLastName);
-       ////GENDER///
-      this.add(lblGender);
-      this.add(radMale);
-      this.add(radFemale);
-      ////PENSIONER///
-      this.add(lblPensioner);
-      this.add(chkPensioner);
-      ///BUTTONS///
-      this.add(myspacer2);
-      this.add(btnPrevious);
-      this.add(btnNext);
-      this.add(btnExit);
-      
-      /////BUTTONS ACTIONLISTENERS///
-        btnPrevious.addActionListener(this);
-        btnNext.addActionListener(this);
-        btnExit.addActionListener(this);
-        
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
-        
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
-    */
     
     
     }
-    
+    @Override
     public void actionPerformed(ActionEvent e){
-        if (e.getActionCommand().equals("Previous")){
+        if (e.getActionCommand().equals("Update")){
 
          
-     } else if(e.getActionCommand().equals("Next")){
-
+     } else if(e.getActionCommand().equals("Reset")){
+                
          
-     } if (e.getActionCommand().equals("Exit")){
+     } else if(e.getActionCommand().equals("Exit")){
          System.exit(0);
      }
    }
