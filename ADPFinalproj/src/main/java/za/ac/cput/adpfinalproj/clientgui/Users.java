@@ -27,6 +27,7 @@ public class Users extends JFrame implements ActionListener {
     PreparedStatement Ps= null;
     ResultSet rs = null;
     
+    
     private JPanel panelsouth;
 
     
@@ -53,7 +54,7 @@ public class Users extends JFrame implements ActionListener {
     private JButton btnRefresh;
     private JButton btnReset;
     
-
+    Users user = new Users();
     
     public Users(){
         
@@ -61,6 +62,7 @@ public class Users extends JFrame implements ActionListener {
         welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
         
         frame.add(welcomeLabel);
+        frame.add(user);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1420,700);
         frame.setLayout(null);
@@ -102,7 +104,7 @@ public class Users extends JFrame implements ActionListener {
     ////////////////////////*SETTTTINGGGG GUUUIIIII////////////////////////////////////////////////// 
    public void setUsers(){
                               
-      this.setLayout(new GridLayout(12, 3));
+      this.setLayout(new GridLayout(12, 8));
 
 
       ///FIRSTNAME///
@@ -143,16 +145,18 @@ public class Users extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
    }
-
+     
   ///////////////////// BUTTTTTTTTONNNNNN ACTTTTIOOOOOONS///////////////////////////////////////////
    public void actionPerformed(ActionEvent i){
        
        
    }
-   public static void main(String[] args) {
-        new CGui().setGUI();
+    public static void main(String[] args) {
+        new Users().setUsers();
     }
+    
 }
+
 //////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////// END OF PROGRAM /////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////

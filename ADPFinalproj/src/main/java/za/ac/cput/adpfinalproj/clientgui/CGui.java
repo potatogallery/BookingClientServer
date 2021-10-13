@@ -9,27 +9,18 @@ import DBConnection.dbConnect;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import static java.util.Collections.sort;
-import java.util.ListIterator;
-import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import worker.CWorker;
 import za.ac.cput.adpfinalproj.clientgui.Admin;
 import za.ac.cput.adpfinalproj.clientgui.Users;
-import Server.ServerCL;
 import java.sql.SQLException;
 /**
  *CGui.java
@@ -161,6 +152,8 @@ ResultSet ra = null;
                    Users b = new Users();
                    b.setVisible(true);
                    this.setVisible(false);
+                   
+                   
                }
             }else {
                JOptionPane.showMessageDialog(null, "Login Failed!");

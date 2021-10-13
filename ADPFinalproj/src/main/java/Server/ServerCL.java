@@ -17,4 +17,17 @@ import javax.swing.JFrame;
  */
 public class ServerCL extends JFrame{
     
-}
+   
+
+    public ServerCL() throws Exception {
+        
+        
+               
+                }
+            }
+
+
+
+
+
+
