@@ -5,6 +5,7 @@
  */
 package za.ac.cput.adpfinalproj.clientgui;
 
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -28,7 +29,7 @@ public class Users extends JFrame implements ActionListener {
     
     
     //////////////// New User/////////////////
-    JLabel lblNewuser = new JLabel("New User");
+    JLabel lblNewuser = new JLabel("New Customer");
     JLabel myHeaderSpacing1 = new JLabel("");
     JLabel myHeaderSpacing2 = new JLabel("");
     JLabel lblfname = new JLabel("First Name:");
@@ -72,14 +73,65 @@ public class Users extends JFrame implements ActionListener {
     JLabel blank2 = new JLabel("");
     
     public Users(){
-        welcomeLabel.setBounds(0,0,900,50);
-        welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
+        welcomeLabel.setBounds(650,0,900,50);
+        welcomeLabel.setFont(new Font(null, Font.PLAIN,18));
+        
+        //// New Customer
+        lblNewuser.setBounds(10, 20, 900, 70);
+        lblNewuser.setFont(new Font(null, Font.PLAIN,17));
+        lblfname.setBounds(10, 20, 900, 160);
+        lblfname.setFont(new Font(null, Font.PLAIN,17));
+        txtfname.setBounds(160, 330, 900, 0);
+        txtfname.setSize(250 , 40);
+        lblSurname.setBounds(10, 20, 900, 250);
+        lblSurname.setFont(new Font(null, Font.PLAIN,17));
+        txtsurname.setBounds(160, 400, 150, 0);
+        txtsurname.setSize(250, 50);
+        lblcell.setBounds(10, 20, 900, 340);
+        lblcell.setFont(new Font(null, Font.PLAIN,17));
+        txtcell.setBounds(160, 470, 150, 0);
+        txtcell.setSize(250, 50);
+        lblemail.setBounds(10, 20, 900, 430);
+        lblemail.setFont(new Font(null, Font.PLAIN,17));
+        txtemail.setBounds(160, 470, 150, 0);
+        txtemail.setSize(250, 50);
+        
+        
+        ////New Booking
+        lblBooking.setBounds(10, 20, 900, 550);
+        lblBooking.setFont(new Font(null, Font.PLAIN,18));
+        lblCustomerName.setBounds(10, 20, 900, 600);
+        lblCustomerName.setFont(new Font(null, Font.PLAIN,17));
+        txtCustomerName.setBounds(160, 80, 150, 0);
+        txtCustomerName.setSize(250, 50);
+        lbladdVenue.setBounds(10, 20, 900, 660);
+        lbladdVenue.setFont(new Font(null, Font.PLAIN,17));
+        txtaddVenue.setBounds(160, 150, 150, 0);
+        txtaddVenue.setSize(250, 50);
+        lblDate.setBounds(10, 20, 900, 730);
+        lblDate.setFont(new Font(null,Font.PLAIN,17));
+        txtDate.setBounds(160, 210, 150, 0);
+        txtDate.setSize(250, 50);
+        
+        ////////Bookings
+        lblBookings.setBounds(700, 20, 900, 70);
+        lblBookings.setFont(new Font(null, Font.PLAIN,18));
+        tblVenues.setBounds(700, 90, 900, 0);
+        tblVenues.setSize(400,300);
+        tblVenues.setBackground(Color.GRAY);
+        lblInvoice.setBounds(700, 90, 900, 390);
+        lblInvoice.setFont(new Font(null, Font.PLAIN,18));
+        cboInvoice.setBounds(950, 280, 150, 0);
+        cboInvoice.setSize(200, 50);
+        
+        
         frame.add(welcomeLabel);
         frame.add(panelnorth);
         frame.add(panelsouth);
         frame.add(paneleast);
         frame.add(panelwest);
-        frame.add(myHeaderSpace2);
+        ////New Customer
+        frame.add(myHeaderSpace1);
         frame.add(lblNewuser);
         frame.add(myHeaderSpacing1);
         frame.add(lblfname);
@@ -94,19 +146,24 @@ public class Users extends JFrame implements ActionListener {
         frame.add(lblemail);
         frame.add(txtemail);
         frame.add(myHeaderSpacing5);
-        frame.add(lblBookings);
+        
+        
+        ////New Booking
+        frame.add(lblBooking);
         frame.add(myheaderLabel);
         frame.add(lblBooking);
-        lblBooking.setBounds(10, 20, 900, 70);
-        lblBooking.setFont(new Font(null, Font.PLAIN,25));
-        lblCustomerName.setBounds(10, 20, 900, 120);
-        lblCustomerName.setFont(new Font(null, Font.PLAIN,25));
-        txtCustomerName.setBounds(180, 70, 150, 120);
         frame.add(myHeaderSpace1);
         frame.add(lblCustomerName);
         frame.add(txtCustomerName);
         frame.add(lbladdVenue);
         frame.add(txtaddVenue);
+        
+        ////Bookings display
+        frame.add(lblBookings);
+        frame.add(myHeaderSpace2);
+        frame.add(lblInvoice);
+        frame.add(cboInvoice);
+        
         frame.add(btnUpdate);
         frame.add(btnReset);
         frame.add(btnExit);
@@ -114,7 +171,7 @@ public class Users extends JFrame implements ActionListener {
         frame.add(blank2);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1420,700);
+        frame.setSize(1420,800);
         frame.setLayout(null);
         frame.setVisible(true);
     /*  
@@ -195,6 +252,7 @@ public class Users extends JFrame implements ActionListener {
         frame.add(myHeaderSpacing5);
         frame.add(tblVenues);
         frame.add(cboInvoice);
+        cboInvoice.addItem("---");
         frame.add(btnUpdate);
         frame.add(btnReset);
         frame.add(btnExit);
