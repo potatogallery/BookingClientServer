@@ -12,14 +12,9 @@ package worker;
  * 
  * WORKER CLASS
  */
-public class CWorker {
+public class Clients {
     
-   private String fname, lname;
-
-    public CWorker(String fname, String lname) {
-        this.fname = fname;
-        this.lname = lname;
-    }
+   private String fname, lname, cell, email ;
 
     public String getFname() {
         return fname;
@@ -37,10 +32,27 @@ public class CWorker {
         this.lname = lname;
     }
 
+    public String getCell() {
+        return cell;
+    }
+
+    public void setCell(String cell) {
+        this.cell = cell;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "CWorker{" + "fname=" + fname + ", lname=" + lname + '}';
+        return "CWorker{" + "fname=" + fname + ", lname=" + lname + ", cell=" + cell + ", email=" + email + '}';
     }
+
    
    
 }

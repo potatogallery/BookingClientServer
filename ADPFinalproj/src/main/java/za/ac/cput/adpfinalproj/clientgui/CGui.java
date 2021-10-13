@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import worker.CWorker;
+import worker.Clients;
 import za.ac.cput.adpfinalproj.clientgui.Admin;
 import za.ac.cput.adpfinalproj.clientgui.Users;
 import Server.ServerCL;
