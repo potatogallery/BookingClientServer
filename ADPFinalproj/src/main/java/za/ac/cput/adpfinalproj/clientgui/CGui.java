@@ -141,6 +141,8 @@ ResultSet ra = null;
    }
 
   ///////////////////// BUTTTTTTTTONNNNNN ACTTTTIOOOOOONS///////////////////////////////////////////
+
+    @Override
    public void actionPerformed(ActionEvent e){
        String login= "SELECT * FROM multilogin WHERE firstname=? AND passw=? AND utype=?" ;
        try{
@@ -151,15 +153,12 @@ ResultSet ra = null;
            ra= ps.executeQuery();         
            
            
-           if(ra.next())
-            {
-               JOptionPane.showMessageDialog(this, "Welcome  "+ra.getString("utype"));
-               if(cboTitle.getSelectedIndex()==0){
-                  Admin a = new Admin(); 
-                  
-               }else{
-                   Users b = new Users();
-                   
+           if(ra.next()){
+              JOptionPane.showMessageDialog(this, "Welcome  "+ra.getString("utype"));
+               if(cboTitle.getSelectedIndex()==0){ 
+                   Admin ad = new Admin();
+               }else{ 
+                   Users mi = new Users();
                }
             }else {
                JOptionPane.showMessageDialog(null, "Login Failed!");
@@ -170,6 +169,7 @@ ResultSet ra = null;
    }
    public static void main(String[] args) {
         new CGui().setCGUI();
+       
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////
