@@ -7,6 +7,8 @@ package Server;
 
 import DBConnection.dbConnect;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import worker.AdminW;
@@ -14,24 +16,74 @@ import worker.AdminW;
  *
  * @author raeec
  */
+
 public class adminDAO {
-    public AdminW newAdmin(AdminW admin) throws SQLException {
-        String insertSQL="INSERT INTO adminf (firstname, password, venuename, venueaddress) "
-                + "VALUES ('%s', '%s', '%s', '%s')";
-        Connection con = dbConnect.derbyConnection();
-        Statement statement = con.createStatement();
-        insertSQL = String.format(insertSQL, admin.getFirstname(), admin.getPassword(), admin.getVenuename(), admin.getVenueaddress());
-        statement.executeUpdate(insertSQL);
-        return admin;
+    private Connection con;
+    private PreparedStatement ps;
+    ResultSet rs;
+    
+    public boolean newAdmin(AdminW admin) throws SQLException {
+        
+         
+        int key = 0;
+        String insertSQL = "INSERT  INTO multilogin (firstname, passw, utype) "
+                + "VALUES ('%s', '%s', '%s')";
+        try {
+        
+        ps = con.prepareStatement(insertSQL);
+        ps.setString(1, admin.getFirstname());
+        ps.setString(2, admin.getPassword());
+        ps.setString(3, admin.getUsertype());
+        
+        key = ps.executeUpdate();
+        }
+            catch (SQLException e) {
+            
+                System.out.println("SQL Exception " + e);
+            }
+        finally {
+            try {
+            
+                if (ps != null) {
+                    ps.close();
+                    con.close();
+                }
+                
+            }
+            
+            catch (SQLException e) {
+            
+                System.out.println("SQL Exception" + e);
+            }
+        
+        }
+            //con = dbConnect.derbyConnection();
+            //ps = con.prepareStatement(insertSQL);
+            //insertSQL = String.format(insertSQL, admin.getFirstname(), admin.getPassword(), admin.getUsertype());
+            //ps.executeUpdate(insertSQL);
+        //return admin;
+    return key == 1;
+    }
+    
+    public AdminW newVenue(AdminW venue) throws SQLException{
+        String venueSQL = "INSERT nvenue, nvenueaddress Into adminf(nvenue, nvenueaddress)" 
+                + "VALUES ('%s', '%s')";
+            con = dbConnect.derbyConnection();
+            ps = con.prepareStatement(venueSQL);
+            venueSQL = String.format(venueSQL, venue.getVenuename(), venue.getVenueaddress());
+            ps.execute(venueSQL);
+            return venue;
     
     }
     
-    public AdminW displayresults(AdminW display) throws SQLException {
-    String displaySQL="SELECT firstname, venuename, venueaddress from adminf";
-    Connection con = dbConnect.derbyConnection();
-    Statement dis = con.createStatement();
-    displaySQL = String.format(displaySQL, display.getFirstname(), display.getVenuename(), display.getVenueaddress());
-    dis.executeUpdate(displaySQL);
+    public AdminW displayresults(AdminW display, AdminW admin, AdminW venue) throws SQLException {
+        String displayadminSQL="SELECT firstname from adminf"+ "SELECT nvenue";
+        Connection con = dbConnect.derbyConnection();
+        Statement dis = con.createStatement();
+    displayadminSQL = String.format(displayadminSQL, display.getFirstname(), display.getVenuename(), display.getVenueaddress());
+    dis.executeUpdate(displayadminSQL);
     return display;
+    
+    
     }
 }
