@@ -19,10 +19,6 @@ import java.time.LocalDate;
 public class Users extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("JK.CO (Agent)");
-    JPanel panelnorth = new JPanel();
-    JPanel panelsouth = new JPanel();
-    JPanel paneleast = new JPanel();
-    JPanel panelwest = new JPanel();
     /////////////////////////Title//////////////////////////
     JLabel myheaderLabel = new JLabel("");
     /*JLabel lblTitle = new JLabel("");
@@ -143,11 +139,7 @@ public class Users extends JFrame implements ActionListener {
         btnSO.setSize(100, 40);
         
         frame.add(welcomeLabel);
-        frame.add(panelnorth);
-        frame.add(panelsouth);
-        frame.add(paneleast);
-        frame.add(panelwest);
-        
+ 
         ////New Customer
         frame.add(myHeaderSpace1);
         frame.add(lblNewuser);
@@ -196,56 +188,12 @@ public class Users extends JFrame implements ActionListener {
         frame.setSize(1230,700);
         frame.setLayout(null);
         frame.setVisible(true);
-    /*  
-    myHeaderSpacing = new JLabel();
-      ///ICON//
-      ImageIcon rog1 = new ImageIcon(new ImageIcon("21.png").getImage().getScaledInstance(120, 90, Image.SCALE_DEFAULT));
-      ///ICON//
-      myheaderLabel = new JLabel("HOSITAL RECORDS");
-      myheaderLabel.setHorizontalAlignment(JLabel.CENTER);
-      myHeaderSpace1 = new JLabel(rog1); 
-      
-      blank1 = new JLabel ("");
-      lbldisplaycount = new JLabel ("");
-      blank2 = new JLabel ("");
-      lblTitle = new JLabel ("Title: ");
-      cboTitle = new JComboBox ();
-      lblErrorOnTitleSpace = new JLabel("");
-      
-      lblFirstName = new JLabel ("First Name:   ");
-      txtFirstName = new JTextField (15);
-      lblOnFirstNameSpace = new JLabel("*Required*");
-       
-      lblLastName = new JLabel ("Last Name:   ");
-      txtLastName = new JTextField (15);
-      lblErrorOnLastName = new JLabel ("*Required*");
-       
-      lblGender = new JLabel ("Gender: ");
-      radMale = new JRadioButton ("Male");
-      radFemale = new JRadioButton ("Female");
-
-      
-       
-      lblPensioner = new JLabel ("Pensioner: ");
-      chkPensioner = new JCheckBox ();
-      myspacer2 = new JLabel("");
-       
-       
-       btnPrevious = new JButton ("Previous");
-       btnPrevious.setBackground(Color.GREEN);
-       btnNext = new JButton ("Next");
-       btnNext.setBackground(Color.GREEN);
-       
-       btnExit = new JButton ("Exit");
-       btnExit.setBackground(Color.GREEN);*/
+    
     }
     public void setUser(){
         this.add(frame);
         this.add(welcomeLabel);
-       // frame.add(panelnorth);
-       // frame.add(panelsouth);
-      //  frame.add(paneleast);
-       // frame.add(panelwest);
+
         frame.add(myheaderLabel);
         frame.add(lblNewuser);
         frame.add(myHeaderSpace1);
@@ -281,57 +229,7 @@ public class Users extends JFrame implements ActionListener {
         frame.add(blank1);
         frame.add(blank2);
         this.setVisible(true);
-    /*
-    this.setLayout(new GridLayout(9, 3));
-      
-      this.add(myHeaderSpace1);
-      this.add(myheaderLabel);
-      this.add(myHeaderSpacing);
-      
-      
-      this.add(blank1);
-      this.add(lbldisplaycount);
-      this.add(blank2);
-      this.add(lblTitle);
-      this.add(cboTitle);
-      
-      cboTitle.addItem("Miss");
-      cboTitle.addItem("Mr");
-      cboTitle.addItem("Mrs");
-     
-      this.add(lblErrorOnTitleSpace);
-      ///FIRSTNAME///
-      this.add(lblFirstName);
-      this.add(txtFirstName);
-      this.add(lblOnFirstNameSpace);
-      ///LASTNAME////
-      this.add(lblLastName);
-      this.add(txtLastName);
-      this.add(lblErrorOnLastName);
-       ////GENDER///
-      this.add(lblGender);
-      this.add(radMale);
-      this.add(radFemale);
-      ////PENSIONER///
-      this.add(lblPensioner);
-      this.add(chkPensioner);
-      ///BUTTONS///
-      this.add(myspacer2);
-      this.add(btnPrevious);
-      this.add(btnNext);
-      this.add(btnExit);
-      
-      /////BUTTONS ACTIONLISTENERS///
-        btnPrevious.addActionListener(this);
-        btnNext.addActionListener(this);
-        btnExit.addActionListener(this);
-        
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
-        
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
-    */
+    
     
     
     }

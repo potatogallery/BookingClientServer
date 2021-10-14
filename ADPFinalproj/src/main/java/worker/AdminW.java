@@ -11,7 +11,7 @@ package worker;
  */
 public class AdminW {
      
-    private String venuename, venueaddress, firstname, password ;
+    private String venuename, venueaddress, firstname, password, usertype, inactive ;
 
     public String getVenuename() {
         return venuename;
@@ -45,10 +45,29 @@ public class AdminW {
         this.password = password;
     }
 
+    public String getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
+    }
+
+    public String getInactive() {
+        return inactive;
+    }
+
+    public void setInactive(String inactive) {
+        this.inactive = inactive;
+    }
+
     @Override
     public String toString() {
-        return "AdminW{" + "venuename=" + venuename + ", venueaddress=" + venueaddress + ", firstname=" + firstname + ", password=" + password + '}';
+        return "AdminW{" + "venuename=" + venuename + ", venueaddress=" + venueaddress + ", firstname=" + firstname + ", password=" + password + ", usertype=" + usertype + ", inactive=" + inactive + '}';
     }
+    
+
+
     
     
 }
