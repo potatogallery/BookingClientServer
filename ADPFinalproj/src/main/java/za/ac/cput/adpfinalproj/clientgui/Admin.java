@@ -60,7 +60,7 @@ public class Admin extends JFrame implements ActionListener {
     JButton btnv1 = new JButton("Add Venue");
     JButton btnUs = new JButton("Add User");
     JButton btnUpdate = new JButton("Update");
-    JButton btnReset = new JButton("Reset");
+    JButton btnReset = new JButton("Refresh");
     JButton btnSO = new JButton("Sign Out");
     
     
