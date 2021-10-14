@@ -14,22 +14,22 @@ package worker;
  */
 public class Clients {
     
-   private String fname, lname, cell, email ;
+   private String firstname, surname, cell, email, bvenue, rdate ;
 
-    public String getFname() {
-        return fname;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLname() {
-        return lname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getCell() {
@@ -48,11 +48,27 @@ public class Clients {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "CWorker{" + "fname=" + fname + ", lname=" + lname + ", cell=" + cell + ", email=" + email + '}';
+    public String getBvenue() {
+        return bvenue;
     }
 
-   
+    public void setBvenue(String bvenue) {
+        this.bvenue = bvenue;
+    }
+
+    public String getRdate() {
+        return rdate;
+    }
+
+    public void setRdate(String rdate) {
+        this.rdate = rdate;
+    }
+
+    @Override
+    public String toString() {
+        return "Clients{" + "firstname=" + firstname + ", surname=" + surname + ", cell=" + cell + ", email=" + email + ", bvenue=" + bvenue + ", rdate=" + rdate + '}';
+    }
+
+    
    
 }
