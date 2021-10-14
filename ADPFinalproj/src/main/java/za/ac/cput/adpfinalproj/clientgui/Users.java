@@ -10,7 +10,6 @@ import java.awt.Font;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
 /**
  *
  * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
@@ -235,13 +234,16 @@ public class Users extends JFrame implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent i){
-        if (i.getActionCommand().equals("Previous")){
+        if (i.getActionCommand().equals("Update")){
+            
+         
+     } else if(i.getActionCommand().equals("Refresh")){
 
          
-     } else if(i.getActionCommand().equals("Next")){
+     }else if(i.getActionCommand().equals("Print")){
 
          
-     } if (i.getActionCommand().equals("Exit")){
+     }  if (i.getActionCommand().equals("Exit")){
          System.exit(0);
      }
    }

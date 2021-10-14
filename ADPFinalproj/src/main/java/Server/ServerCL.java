@@ -19,11 +19,7 @@ public class ServerCL extends JFrame{
     
    
 
-    public ServerCL() throws Exception {
-        
-        
-               
-                }
+    
             }
 
 
