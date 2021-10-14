@@ -57,6 +57,8 @@ public class Admin extends JFrame implements ActionListener {
     JLabel lblinactive = new JLabel("Select Inactive:");
     JComboBox cboinactive = new JComboBox();
     //////////////////BUTTONS FOR Update,Reset OR EXIT/////////////////////
+    JButton btnv1 = new JButton("Add Venue");
+    JButton btnUs = new JButton("Add User");
     JButton btnUpdate = new JButton("Update");
     JButton btnReset = new JButton("Reset");
     JButton btnSO = new JButton("Sign Out");
@@ -124,12 +126,16 @@ public class Admin extends JFrame implements ActionListener {
         cboinactive.setSize(200 , 50);
         cboinactive.setBackground(Color.WHITE);
         /////// BUTTONS
-        btnUpdate.setBounds(300, 600 , 150, 0);
+        btnv1.setBounds(200, 210 , 150, 0);
+        btnv1.setSize(100, 40);
+        btnUs.setBounds(200, 530 , 150, 0);
+        btnUs.setSize(100, 40);
+        btnUpdate.setBounds(1060, 475 , 150, 0);
         btnUpdate.setSize(100, 40);
-        btnReset.setBounds(550, 600 , 150, 0);
-        btnReset.setSize(100, 40);
-        btnSO.setBounds(800, 600 , 150, 0);
-        btnSO.setSize(100, 40);
+        btnReset.setBounds(200, 600 , 150, 0);
+        btnReset.setSize(400, 40);
+        btnSO.setBounds(600, 600 , 150, 0);
+        btnSO.setSize(400, 40);
         
         
         
@@ -159,6 +165,8 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(tblVenues);
         frame.add(lblinactive);
         frame.add(cboinactive);
+        frame.add(btnv1);
+        frame.add(btnUs);
         frame.add(btnUpdate);
         frame.add(btnReset);
         frame.add(btnSO);
@@ -196,13 +204,15 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(tblVenues);
         frame.add(lblinactive);
         frame.add(cboinactive);
+        frame.add(btnv1);
+        frame.add(btnUs);
         frame.add(btnUpdate);
         frame.add(btnReset);
         frame.add(btnSO);
         frame.add(blank1);
         frame.add(blank2);
         
-        btnUpdate.addActionListener(this);
+        btnUs.addActionListener(this);
         btnReset.addActionListener(this);
         btnSO.addActionListener(this);
         
