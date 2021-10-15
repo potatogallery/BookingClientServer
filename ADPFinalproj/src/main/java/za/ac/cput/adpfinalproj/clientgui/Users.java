@@ -288,9 +288,7 @@ public class Users extends JFrame implements ActionListener {
      }
    }
 
-    public static void main(String[] args) {
-        new Users().setUser();
-    }
+   
       
 }
 //////////////////////////////////////////////////////////////////////////////////////////

@@ -16,7 +16,7 @@ import worker.AgentW;
  
 /**
  *ServerCL.java
- * @author Raeece Samuels ('StundentNo') & Keallan Saunders (219169357)
+ * @author Raeece Samuels ('217283764') & Keallan Saunders (219169357)
  * ADP262S FINAL PROJECT DD:15 OCT 2021
  * awe other go was here
  * SERVER CLASS

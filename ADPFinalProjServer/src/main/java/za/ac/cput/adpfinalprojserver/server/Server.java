@@ -121,14 +121,7 @@ public class Server {
         }
         
     }
-    public static void main(String[] args)
-    {
-        // Create application
-        Server server = new Server();
-        
-        // Start waiting for connections
-        server.listen();
-    }
+    
     
 }
     

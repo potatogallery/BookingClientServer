@@ -6,19 +6,10 @@
 package za.ac.cput.adpfinalproj.clientgui;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import static java.util.Collections.sort;
-import java.util.ListIterator;
-import za.ac.cput.adpfinalproj.clientgui.CGui;
 import Server.ServerCL;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 import worker.AdminW;
 /**
  *Admin.java
@@ -276,8 +267,5 @@ public class Admin extends JFrame implements ActionListener {
      }
             }
         
-    public static void main(String[] args) {
-        new Admin().setAdmin();
-    }
-    
+   
 }
