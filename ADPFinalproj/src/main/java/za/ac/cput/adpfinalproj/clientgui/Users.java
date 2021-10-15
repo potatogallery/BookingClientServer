@@ -10,12 +10,16 @@ import java.awt.Font;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import worker.AgentW;
+import Server.ServerCL;
 /**
  *
  * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
  * ADP262S FINAL PROJECT DD:15 OCT 2021
  */
 public class Users extends JFrame implements ActionListener {
+    ServerCL yes = new ServerCL();
+    AgentW agent;
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("JK.CO (Agent)");
     /////////////////////////Title//////////////////////////
@@ -234,17 +238,52 @@ public class Users extends JFrame implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent i){
-        if (i.getActionCommand().equals("Update")){
-            
+        
+        if(i.getActionCommand().equals(btnUpdate)){
+        if(txtfname.getText().isEmpty() || txtsurname.getText().isEmpty() || txtcell.getText().isEmpty() || txtemail.getText().isEmpty()  || txtDate.getText().isEmpty())
+            JOptionPane.showMessageDialog(null, "Please fill all fields");
+        
+        }else{
+            String txtfname = this.txtfname.getText();
+            String txtsurname = this.txtsurname.getText();
+            String txtcell = this.txtcell.getText();
+            String txtemail = this.txtemail.getText();
+            String txtdate = this.txtDate.getText();
+            boolean result;
+            agent.setFirstname(txtfname);
+            agent.setSurname(txtsurname);
+            agent.setCell(txtcell);
+            agent.setEmail(txtemail);
+            agent.setRdate(txtdate);
+            result = yes.addClient(agent);
+            if(result == true){
+               JOptionPane.showMessageDialog(null, "New client added");
+               this.txtfname.setText(null);
+               this.txtsurname.setText(null);
+               this.txtcell.setText(null);
+               this.txtemail.setText(null);
+               this.txtDate.setText(null);
+               
+            }
+        
+        
+        
+        }
+    
+         if(i.getActionCommand().equals(btnReset)){
+              new Users();
+             
          
-     } else if(i.getActionCommand().equals("Refresh")){
-
+         }
+         if(i.getActionCommand().equals(btnShow)){
+              
+             
          
-     }else if(i.getActionCommand().equals("Print")){
-
+         }
          
-     }  if (i.getActionCommand().equals("Exit")){
+       if (i.getActionCommand().equals(btnSO)){
          System.exit(0);
+           System.out.println("Goodbye now");
      }
    }
 
