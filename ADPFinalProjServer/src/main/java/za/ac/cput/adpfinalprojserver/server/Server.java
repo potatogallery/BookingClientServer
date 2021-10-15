@@ -37,7 +37,7 @@ public class Server {
     ArrayList<AdminW> admins = new ArrayList<>();
     /** Creates a new instance of ServerApp */
     
-    {
+    public void runserver() {
         // Create server socket
         try {
             communicate = new ServerSocket(1570, 10);
@@ -50,49 +50,29 @@ public class Server {
     
     public void listen()
     {
-        // Start listening for client connections
+       try {
+            sock = communicate.accept();
+        } catch (IOException ie) {
+            System.out.println(ie.getMessage());
+        }
+    }
+    
+    public void createChannels() {
         try {
-          System.out.println("Server is listening");
-          sock = communicate.accept();  
-          System.out.println("Now moving onto processClient");
-          
-          processClient();
+            out = new ObjectOutputStream(sock.getOutputStream());
+            out.flush();
+            ois = new ObjectInputStream(sock.getInputStream());
+        } catch (IOException ie) {
+            System.out.println(ie.getMessage());
         }
-        catch(IOException ioe)
-        {
-            System.out.println("IO Exception: " + ioe.getMessage());
-        }
+    
+    
+    
     }
     
     public void processClient()
     {
-        // Communicate with the client
         
-        // First step: initiate channels
-        try {
-            ObjectOutputStream out = new ObjectOutputStream(sock.getOutputStream());
-            out.flush();
-            ObjectInputStream in = new ObjectInputStream(sock.getInputStream());
-            
-            // Step 2: communicate
-            String msg = (String)in.readObject();
-            System.out.println("From newCustomer>> " + msg);
-            out.writeObject("Hello " + msg);
-            out.flush();
-            
-            // Step 3:close down
-            out.close();
-            in.close();
-            sock.close();        
-        }
-        catch (IOException ioe)
-        {
-            System.out.println("IO Exception: " + ioe.getMessage());
-        }
-        catch (ClassNotFoundException cnfe)
-        {
-            System.out.println("Class not found: " + cnfe.getMessage());
-        }
     }
     
             }
