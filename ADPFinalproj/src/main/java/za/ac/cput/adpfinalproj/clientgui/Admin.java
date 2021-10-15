@@ -81,11 +81,10 @@ public class Admin extends JFrame implements ActionListener {
         
         Object[] columnNames = {"Venue","Venue Address"};
         DefaultTableModel model = new DefaultTableModel();
+        Object[] var = new Object[2];
         model.setColumnIdentifiers(columnNames);
         tblVenues.setModel(model);
-        tblVenues.setBackground(Color.WHITE);
-        tblVenues.setRowHeight(500);
-        
+        tblVenues
         
          
         welcomeLabel.setBounds(500,0,900,30);
@@ -127,10 +126,10 @@ public class Admin extends JFrame implements ActionListener {
         lblVenues.setBounds(700, 20, 900, 70);
         lblVenues.setFont(new Font(null, Font.PLAIN,18));
         lblVenues.setForeground(Color.RED);
-        /*tblVenues.setBounds(700, 90, 900, 0);
+        tblVenues.setBounds(700, 90, 900, 0);
         tblVenues.setSize(500,350);
         ///tblVenues.setBorder();
-        tblVenues.setBackground(Color.WHITE);*/
+        tblVenues.setBackground(Color.WHITE);
         ///////iNACTIVE
         lblinactive.setBounds(700, 20, 900, 940);
         lblinactive.setFont(new Font(null, Font.PLAIN,18));
@@ -234,7 +233,6 @@ public class Admin extends JFrame implements ActionListener {
         
         this.setVisible(true);
 
-        Object[] var = new Object[2];
     }
     @Override
     public void actionPerformed(ActionEvent e){
@@ -245,7 +243,8 @@ public class Admin extends JFrame implements ActionListener {
                     String venueName = txtVenueName.getText();
                     String venueAdd = txtVenueAdd.getText();   
                     boolean response;
-                    adminw = new AdminW(venueName, venueAdd);
+                    adminw.setVenuename(venueName);
+                    adminw.setVenueaddress(venueAdd);
                     response = eish.addVenue(adminw);
                     if (response == true) {
                         
@@ -264,7 +263,9 @@ public class Admin extends JFrame implements ActionListener {
                     String firstName = txtfirstName.getText();
                     String password = txtpassword.getText();
                     boolean response;
-                    adminw = new AdminW(cbouType, firstName, password);
+                    adminw.setUsertype(cbouType); 
+                    adminw.setFirstname(firstName);
+                    adminw.setPassword(password);
                     response = eish.addVenue(adminw);
                     if (response == true){  
                         JOptionPane.showMessageDialog(null, "New User Added");
@@ -274,11 +275,6 @@ public class Admin extends JFrame implements ActionListener {
                     }}
                     
                 }
-           if(e.getSource() == btnReset){
-               var[0] = txtVenueName.getText();
-               var[1] = txtVenueAdd.getText();
-               model.addRow(var);
-           }
            
            
            
