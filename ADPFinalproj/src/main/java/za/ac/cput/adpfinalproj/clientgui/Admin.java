@@ -239,7 +239,7 @@ public class Admin extends JFrame implements ActionListener {
                     String venueAdd = txtVenueAdd.getText();   
                     boolean response;
                     adminw.setVenuename(venueName);
-                    adminw.setVenueaddress(venueAdd);
+                    adminw.setVenuename(venueAdd);
                     response = eish.addVenue(adminw);
                     if (response == true) {
                         
@@ -270,11 +270,6 @@ public class Admin extends JFrame implements ActionListener {
                     }}
                     
                 }
-           
-           
-           
-           
-           
             }
         
     public static void main(String[] args) {

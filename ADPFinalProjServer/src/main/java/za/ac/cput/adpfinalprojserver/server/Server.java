@@ -53,7 +53,7 @@ public class Server {
     public void runserver() {
         // Create server socket
         try {
-            communicate = new ServerSocket(1570);
+            communicate = new ServerSocket(1570, 10);
         }
         catch (IOException ioe)
         {
