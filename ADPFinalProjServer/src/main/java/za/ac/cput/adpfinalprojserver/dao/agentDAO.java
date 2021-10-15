@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import za.ac.cput.adpfinalprojserver.worker.AgentW;
 import za.ac.cput.adpfinalprojserver.connect.DBConnect;
+import za.ac.cput.adpfinalprojserver.server.Server;
 /*
  **agentDAO.java
  * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
@@ -21,6 +22,7 @@ import za.ac.cput.adpfinalprojserver.connect.DBConnect;
  *
  */
 public class agentDAO {
+    Server serv;
     ResultSet r;
     private PreparedStatement p;
     private Connection con;
@@ -29,7 +31,7 @@ public class agentDAO {
         this.con = DBConnect.derbyConnection();
     }
     
-    public boolean newClient(AgentW client) throws SQLException {
+    public boolean newClient(AgentW client) {
         
          
         int key = 0;
@@ -91,7 +93,7 @@ public class agentDAO {
         int lock = 0;
         
         ArrayList<AgentW> clientList = new ArrayList<>();
-        String getAllClientsSQL = "SELECT * FROM customer";
+        String getAllClientsSQL = "SELECT * FROM newcustomer ORDER BY surname";
         try {
             p = con.prepareStatement(getAllClientsSQL);
             r = p.executeQuery();
