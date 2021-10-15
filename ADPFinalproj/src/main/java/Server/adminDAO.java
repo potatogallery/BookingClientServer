@@ -22,61 +22,81 @@ public class adminDAO {
     private PreparedStatement ps;
     ResultSet rs;
     
-    public boolean newAdmin(AdminW admin) throws SQLException {
-        
-         
+    public boolean newUser(AdminW admin) throws SQLException { 
         int key = 0;
         String insertSQL = "INSERT  INTO multilogin (firstname, passw, utype) "
                 + "VALUES ('%s', '%s', '%s')";
-        try {
-        
-        ps = con.prepareStatement(insertSQL);
-        ps.setString(1, admin.getFirstname());
-        ps.setString(2, admin.getPassword());
-        ps.setString(3, admin.getUsertype());
-        
-        key = ps.executeUpdate();
-        }
-            catch (SQLException e) {
-            
-                System.out.println("SQL Exception " + e);
+        try {   ps = con.prepareStatement(insertSQL);
+                ps.setString(1, admin.getFirstname());
+                ps.setString(2, admin.getPassword());
+                ps.setString(3, admin.getUsertype());
+                key = ps.executeUpdate();
             }
-        finally {
-            try {
-            
-                if (ps != null) {
-                    ps.close();
-                    con.close();
+            catch (SQLException e) {System.out.println("SQL Exception " + e);} 
+            finally {
+            try { 
+                if (ps != null) 
+                {ps.close();con.close();}
                 }
-                
-            }
-            
-            catch (SQLException e) {
-            
-                System.out.println("SQL Exception" + e);
-            }
-        
-        }
-            //con = dbConnect.derbyConnection();
-            //ps = con.prepareStatement(insertSQL);
-            //insertSQL = String.format(insertSQL, admin.getFirstname(), admin.getPassword(), admin.getUsertype());
-            //ps.executeUpdate(insertSQL);
-        //return admin;
-    return key == 1;
+            catch (SQLException e) {System.out.println("SQL Exception" + e);}
+                }
+            return key == 0;
     }
     
-    public AdminW newVenue(AdminW venue) throws SQLException{
-        String venueSQL = "INSERT nvenue, nvenueaddress Into adminf(nvenue, nvenueaddress)" 
+    public boolean newVenue(AdminW venue) throws SQLException{
+        int key = 0;
+        String insertSQL = "INSERT  INTO adminf (nvenue, nvenaddress) "
+                + "VALUES ('%s', '%s')";
+        try {  ps = con.prepareStatement(insertSQL);
+               ps.setString(1, venue.getVenuename());
+               ps.setString(2, venue.getVenueaddress());
+               key = ps.executeUpdate();
+        }
+            catch (SQLException e) {System.out.println("SQL Exception " + e);} 
+            finally {
+            try { 
+                if (ps != null) 
+                {ps.close();con.close();}
+                }
+            catch (SQLException e) {System.out.println("SQL Exception" + e);}
+                }
+            return key == 1;
+    }
+    
+    public boolean valuser(String usern) {
+        boolean lambo = false;
+        String valuser = "SELECT * FROM multilogin WHERE firstname = ?";
+        try { ps = con.prepareStatement(valuser);
+              ps.setString(1, usern);
+              rs = ps.executeQuery();
+              lambo = rs.next();
+            } 
+        catch (SQLException e) {System.out.println("SQL Exception: " + e);} 
+        finally {
+            try {
+                if (ps != null) 
+                {ps.close();con.close();}
+                } 
+            catch (SQLException e) {
+                System.out.println("SQL Exception" + e);
+            }
+        }
+        return lambo;
+    }
+    
+}
+
+        /*String venueSQL = "INSERT nvenue, nvenueaddress Into adminf(nvenue, nvenueaddress)" 
                 + "VALUES ('%s', '%s')";
             con = dbConnect.derbyConnection();
             ps = con.prepareStatement(venueSQL);
             venueSQL = String.format(venueSQL, venue.getVenuename(), venue.getVenueaddress());
             ps.execute(venueSQL);
-            return venue;
+            return venue;*/
     
-    }
     
-    public AdminW displayresults(AdminW display, AdminW admin, AdminW venue) throws SQLException {
+    
+    /*public AdminW displayresults(AdminW display, AdminW admin, AdminW venue) throws SQLException {
         String displayadminSQL="SELECT firstname from adminf"+ "SELECT nvenue";
         Connection con = dbConnect.derbyConnection();
         Statement dis = con.createStatement();
@@ -86,4 +106,4 @@ public class adminDAO {
     
     
     }
-}
+}*/
