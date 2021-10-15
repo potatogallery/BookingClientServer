@@ -91,23 +91,25 @@ public class clientDAO {
         }
         return exist;
     }
-    Clients client = new Clients();
-    public ArrayList<Clients> getAllCustomer() {
+    
+    public ArrayList<Clients> getAllClients(Clients client) {
+        int lock = 0;
+        
         ArrayList<Clients> clientList = new ArrayList<>();
-        String getAllCustomersSQL = "SELECT * FROM customer";
+        String getAllClientsSQL = "SELECT * FROM customer";
         try {
-            p = con.prepareStatement(getAllCustomersSQL);
+            p = con.prepareStatement(getAllClientsSQL);
             r = p.executeQuery();
-
-            while (r.next()) {
-                
-                p.setString(1, client.getFirstname());
-                p.setString(2, client.getSurname());
-                p.setString(3, client.getCell());
-                p.setString(4, client.getEmail());
-                p.setString(5, client.getBvenue());
-                p.setString(6, client.getRdate());
-            }
+            
+            p.setString(1, client.getFirstname());
+            p.setString(2, client.getSurname());
+            p.setString(3, client.getCell());
+            p.setString(4, client.getEmail());
+            p.setString(5, client.getBvenue());
+            p.setString(6, client.getRdate());
+        
+        lock = p.executeUpdate();
+            
         } catch (SQLException ex) {
             System.out.println("SQL Exception: " + ex);
         } finally {
