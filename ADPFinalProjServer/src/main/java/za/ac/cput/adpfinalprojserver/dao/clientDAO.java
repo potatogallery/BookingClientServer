@@ -49,14 +49,7 @@ public class clientDAO {
                 System.out.println("SQL Exception " + i);
             }
         finally {
-            try {
-            
-                if (p != null) {
-                    p.close();
-                    con.close();
-                }
-                
-            }
+            try {    if (p != null)   { p.close(); con.close();}     }
             
             catch (SQLException i) {
             
@@ -64,8 +57,7 @@ public class clientDAO {
             }
         
         }
-            
-    return key == 1;
+        return key == 1;
     }
     
     //Validating a customer

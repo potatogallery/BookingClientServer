@@ -72,7 +72,18 @@ public class Server {
 
     public void processClient() {
 
-        
-
+        try {
+            do {
+                userRequest = (String) in.readObject();
+            
+            if (userRequest.equalsIgnoreCase("addUser")) {
+                    System.out.println("Requesting to Add User");
+                    User user = (User) in.readObject();
+                    userDao = new UserDao();
+                    boolean response = userDao.addUser(user);
+                    System.out.println("User added: " + response);
+                    out.writeBoolean(response);
+                    out.flush();
+            }
     }
 }
