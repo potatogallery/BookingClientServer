@@ -10,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import za.ac.cput.adpfinalprojserver.dao.adminDAO;
 import za.ac.cput.adpfinalprojserver.dao.agentDAO;
@@ -39,7 +40,7 @@ public class Server {
     ArrayList<AgentW> clients = new ArrayList<>();
     ArrayList<AdminW> admins = new ArrayList<>();
 
-    public Server() {
+    public Server() throws SQLException {
         System.out.println("Server is online");
         runserver();
         listen();
@@ -81,10 +82,40 @@ public class Server {
     
     }
     
-    public void processClient()
+    public void processClient() throws SQLException
     {
+        try { 
+            userRequest = (String) ois.readObject();
+            // Step 2: communicate
+            if (userRequest.equalsIgnoreCase("addVenue")) {
+                    System.out.println("Requesting for Adding a New Venue");
+                    AdminW ab = (AdminW) ois.readObject();
+                    admindao = new adminDAO();
+                    boolean a = admindao.newVenue(ab);
+                    System.out.println("Venue has been added: " + a);
+                    out.writeBoolean(a);
+                    out.flush();
+                }
+            else if(userRequest.equalsIgnoreCase("addUser")){
+            System.out.println("Request Add Inventory");
+                    AdminW cb = (AdminW) ois.readObject();
+                    admindao = new adminDAO();
+                    boolean response = admindao.newUser(cb);
+                    System.out.println("Inventory added: " + response);
+                    out.writeBoolean(response);
+                    out.flush();
+            }
+        }
+        catch (IOException ioe)
+        {
+            System.out.println("IO Exception: " + ioe.getMessage());
+        }
+        catch (ClassNotFoundException cnfe)
+        {
+            System.out.println("Class not found: " + cnfe.getMessage());
+        }
         
     }
     
-            }
+}
     
