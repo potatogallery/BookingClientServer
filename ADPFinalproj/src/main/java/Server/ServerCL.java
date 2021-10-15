@@ -24,7 +24,7 @@ public class ServerCL {
     private ObjectInputStream ois;
     private Socket sock;
     
-    public ServerCL()
+    public void ServerCL()
     {
         //SERVER CONNECTION FROM CLIENT.
     
@@ -45,16 +45,39 @@ public class ServerCL {
             out.flush();
             out.writeObject(admin);
             out.flush();
-            System.out.println("ClientServer addUser method: completed");
+            System.out.println("ServerCL Venue ADD: finished");
             return ois.readBoolean();
         } catch (IOException ioe) {
-            System.out.println("ClientServer addUser Method: " + ioe);
+            System.out.println("ServerCL Venue ADD: " + ioe);
             return false;
         }
     }
+   public boolean addUser(AdminW admin){
+       try {
+            out.writeObject("add User");
+            out.flush();
+            out.writeObject(admin);
+            out.flush();
+            System.out.println("ServerCL User ADD: finished");
+            return ois.readBoolean();
+        } catch (IOException ioe) {
+            System.out.println("ServerCL User ADD: " + ioe);
+            return false;
+        }
+   }
+   
+   
+   
+   
+   
+  public static void main(String[] args)
+    {
+        ServerCL ab = new ServerCL();
+        ab.ServerCL();
+    }  
+  
+}
 
-    
-            }
 
 
 
