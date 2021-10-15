@@ -40,13 +40,15 @@ public class Server {
     ArrayList<AdminW> admins = new ArrayList<>();
 
     public Server() {
-        System.out.println("Server is online");
+        System.out.println("System is online");
         runserver();
         listen();
         createChannels();
         processClient();
     }
+
     
+        
     
     public void runserver() {
         // Create server socket
@@ -84,6 +86,8 @@ public class Server {
     public void processClient()
     {
         try { 
+            
+            do {
             userRequest = (String) ois.readObject();
             // Step 2: communicate
             if (userRequest.equalsIgnoreCase("addVenue")) {
@@ -94,6 +98,7 @@ public class Server {
                     System.out.println("Venue has been added: " + a);
                     out.writeBoolean(a);
                     out.flush();
+                    
                 }
             else if(userRequest.equalsIgnoreCase("addUser")){
             System.out.println("Requesting for Adding a New User");
@@ -104,14 +109,10 @@ public class Server {
                     out.writeBoolean(b);
                     out.flush();
             }
+        } while(!userRequest.equalsIgnoreCase("terminate"));
         }
-        catch (IOException ioe)
-        {
-            System.out.println(ioe.getMessage());
-        }
-        catch (ClassNotFoundException cnfe)
-        {
-            System.out.println(cnfe.getMessage());
+        catch (IOException | ClassNotFoundException e) {
+            System.out.println("Eception: " + e);
         }
         
     }
