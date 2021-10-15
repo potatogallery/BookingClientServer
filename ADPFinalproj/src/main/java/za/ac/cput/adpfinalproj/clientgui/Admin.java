@@ -14,12 +14,21 @@ import static java.util.Collections.sort;
 import java.util.ListIterator;
 import za.ac.cput.adpfinalproj.clientgui.CGui;
 import Server.ServerCL;
+import Server.adminDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import worker.AdminW;
 /**
  *
  * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
  * ADP262S FINAL PROJECT DD:15 OCT 2021
  */
 public class Admin extends JFrame implements ActionListener {
+    
+    AdminW adminw;
+    
+    adminDAO eish = new adminDAO();
     
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("JK.CO (ADMIN)");
@@ -212,7 +221,10 @@ public class Admin extends JFrame implements ActionListener {
         frame.add(blank1);
         frame.add(blank2);
         
+        
+        btnv1.addActionListener(this);
         btnUs.addActionListener(this);
+        btnUpdate.addActionListener(this);
         btnReset.addActionListener(this);
         btnSO.addActionListener(this);
         
@@ -221,19 +233,44 @@ public class Admin extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e){
-        if (e.getActionCommand().equals("Update")){
-
-         
-     } else if(e.getActionCommand().equals("Reset")){
-                
-         
-     } else if(e.getActionCommand().equals("Sign Out")){
-         JOptionPane.showMessageDialog(this, "Signing You Out");
-         CGui mm = new CGui();
-                   dispose();
-     }
-   }
-
+        if (e.getSource() == btnv1) {
+           if (txtVenueName.getText().isEmpty() || txtVenueAdd.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please Fill in Fields.");
+            } else {
+                    String venueName = txtVenueName.getText();
+                    String venueAdd = txtVenueAdd.getText(); 
+             //       adminw = new AdminW(venueName, venueAdd);
+                    try {
+                        boolean keys = eish.newVenue(adminw);
+                        JOptionPane.showMessageDialog(null, "New Venue Added");
+                        txtVenueName.setText(null);
+                        txtVenueAdd.setText(null);
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, ex);
+                    }
+   
+                } 
+            }
+         if(e.getSource() == btnUs) {
+           if ((cboutype.getSelectedIndex() == 0) || txtfirstName.getText().isEmpty() || txtpassword.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Please Fill in Fields.");
+            } else {
+                    String cbouType = cboutype.getSelectedItem().toString();
+                    String firstName = txtfirstName.getText();
+                    String password = txtpassword.getText();
+              //      adminw = new AdminW(cbouType, firstName, password);
+                    try {
+                        boolean keys = eish.newUser(adminw);
+                        JOptionPane.showMessageDialog(null, "New Venue Added");
+                        txtVenueName.setText(null);
+                        txtVenueAdd.setText(null);
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, ex);
+                    }
+                    
+                } 
+            }
+        }
     public static void main(String[] args) {
         new Admin().setAdmin();
     }
