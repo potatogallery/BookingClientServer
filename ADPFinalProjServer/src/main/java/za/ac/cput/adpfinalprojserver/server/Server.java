@@ -101,7 +101,7 @@ public class Server {
                     AdminW cb = (AdminW) ois.readObject();
                     admindao = new adminDAO();
                     boolean b = admindao.newUser(cb);
-                    System.out.println("Inventory added: " + b);
+                    System.out.println("User has been added: " + b);
                     out.writeBoolean(b);
                     out.flush();
             }
