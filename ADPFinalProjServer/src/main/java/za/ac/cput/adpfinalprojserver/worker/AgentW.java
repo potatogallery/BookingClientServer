@@ -11,11 +11,11 @@ import java.io.Serializable;
  *
  * @author raeec
  */
-public class Clients implements Serializable{
+public class AgentW implements Serializable{
     
    private String firstname, surname, cell, email, bvenue, rdate ;
 
-    public Clients(String firstname, String surname, String cell, String email, String bvenue, String rdate) {
+    public AgentW(String firstname, String surname, String cell, String email, String bvenue, String rdate) {
         this.firstname = firstname;
         this.surname = surname;
         this.cell = cell;

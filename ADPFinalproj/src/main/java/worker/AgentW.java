@@ -12,7 +12,7 @@ package worker;
  * 
  * WORKER CLASS
  */
-public class Clients {
+public class AgentW {
     
    private String firstname, surname, cell, email, bvenue, rdate ;
 

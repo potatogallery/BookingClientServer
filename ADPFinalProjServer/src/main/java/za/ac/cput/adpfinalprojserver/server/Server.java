@@ -11,9 +11,9 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import za.ac.cput.adpfinalprojserver.dao.adminDAO;
-import za.ac.cput.adpfinalprojserver.dao.clientDAO;
+import za.ac.cput.adpfinalprojserver.dao.agentDAO;
 import za.ac.cput.adpfinalprojserver.worker.AdminW;
-import za.ac.cput.adpfinalprojserver.worker.Clients;
+import za.ac.cput.adpfinalprojserver.worker.AgentW;
 
 /**
  *
@@ -25,10 +25,10 @@ public class Server {
         private ObjectInputStream ois;
         private ObjectOutputStream out;
     
-        clientDAO clientdao;
+        agentDAO clientdao;
         adminDAO admindao;
         AdminW admin;
-        Clients customer;
+        AgentW client;
         
         String userRequest;
      

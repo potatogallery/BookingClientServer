@@ -10,23 +10,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import za.ac.cput.adpfinalprojserver.worker.Clients;
+import za.ac.cput.adpfinalprojserver.worker.AgentW;
 import za.ac.cput.adpfinalprojserver.connect.DBConnect;
 /*
  *
  * @param Users
  *
  */
-public class clientDAO {
+public class agentDAO {
     ResultSet r;
     private PreparedStatement p;
     private Connection con;
 
-    public clientDAO() {
+    public agentDAO() {
         this.con = DBConnect.derbyConnection();
     }
     
-    public boolean newClient(Clients client) throws SQLException {
+    public boolean newClient(AgentW client) throws SQLException {
         
          
         int key = 0;
@@ -84,10 +84,10 @@ public class clientDAO {
         return exist;
     }
     
-    public ArrayList<Clients> getAllClients(Clients client) {
+    public ArrayList<AgentW> getAllClients(AgentW client) {
         int lock = 0;
         
-        ArrayList<Clients> clientList = new ArrayList<>();
+        ArrayList<AgentW> clientList = new ArrayList<>();
         String getAllClientsSQL = "SELECT * FROM customer";
         try {
             p = con.prepareStatement(getAllClientsSQL);
