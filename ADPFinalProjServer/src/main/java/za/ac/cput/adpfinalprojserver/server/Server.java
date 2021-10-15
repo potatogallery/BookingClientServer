@@ -10,7 +10,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import za.ac.cput.adpfinalprojserver.dao.adminDAO;
 import za.ac.cput.adpfinalprojserver.dao.agentDAO;
@@ -56,7 +55,7 @@ public class Server {
         }
         catch (IOException ioe)
         {
-          System.out.println("IO Exception: " + ioe.getMessage());
+          System.out.println(ioe.getMessage());
         }
     }
     
@@ -108,11 +107,11 @@ public class Server {
         }
         catch (IOException ioe)
         {
-            System.out.println("IO Exception: " + ioe.getMessage());
+            System.out.println(ioe.getMessage());
         }
         catch (ClassNotFoundException cnfe)
         {
-            System.out.println("Class not found: " + cnfe.getMessage());
+            System.out.println(cnfe.getMessage());
         }
         
     }

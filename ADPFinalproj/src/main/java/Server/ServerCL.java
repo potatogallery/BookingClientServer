@@ -112,7 +112,7 @@ public class ServerCL {
   public static void main(String[] args)
     {
         ServerCL ab = new ServerCL();
-        ab.ServerCL();
+        
     }  
   
 }
