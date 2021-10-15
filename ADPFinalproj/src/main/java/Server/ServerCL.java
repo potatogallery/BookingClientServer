@@ -26,17 +26,18 @@ public class ServerCL {
     
     public ServerCL()
     {
-        // Attempt to establish connection to server
-        try
-        {
-            // Create socket
+        //SERVER CONNECTION FROM CLIENT.
+    
+        try {
             sock = new Socket("localhost", 1570);
-        }
-        catch (IOException ioe)
-        {
-            System.out.println("IOException: " + ioe.getMessage());
+            out = new ObjectOutputStream(sock.getOutputStream());
+            out.flush();
+            ois = new ObjectInputStream(sock.getInputStream());
+        } catch (IOException ex) {
+            System.out.println(ex);
         }
     }
+    
     
    public boolean addVenue(AdminW admin) {
         try {
