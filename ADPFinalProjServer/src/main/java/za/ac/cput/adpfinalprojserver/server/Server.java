@@ -20,24 +20,25 @@ import za.ac.cput.adpfinalprojserver.worker.Clients;
  * @author raeece
  */
 public class Server {
-    
-        private Socket sock;
+         ServerSocket communicate;
+         Socket sock;
         private ObjectInputStream ois;
         private ObjectOutputStream out;
     
-
-     // Server socket
-    private ServerSocket listener;
-    
-    // Client connection
-    private Socket client;
+        clientDAO clientdao;
+        adminDAO admindao;
+        AdminW admin;
+        Clients customer;
+        
+        String userRequest;
+     
     
     /** Creates a new instance of ServerApp */
     
     {
         // Create server socket
         try {
-            listener = new ServerSocket(1570, 10);
+            communicate = new ServerSocket(1570, 10);
         }
         catch (IOException ioe)
         {
@@ -50,7 +51,7 @@ public class Server {
         // Start listening for client connections
         try {
           System.out.println("Server is listening");
-          client = listener.accept();  
+          sock = communicate.accept();  
           System.out.println("Now moving onto processClient");
           
           processClient();
@@ -67,9 +68,9 @@ public class Server {
         
         // First step: initiate channels
         try {
-            ObjectOutputStream out = new ObjectOutputStream(client.getOutputStream());
+            ObjectOutputStream out = new ObjectOutputStream(sock.getOutputStream());
             out.flush();
-            ObjectInputStream in = new ObjectInputStream(client.getInputStream());
+            ObjectInputStream in = new ObjectInputStream(sock.getInputStream());
             
             // Step 2: communicate
             String msg = (String)in.readObject();
@@ -80,7 +81,7 @@ public class Server {
             // Step 3:close down
             out.close();
             in.close();
-            client.close();        
+            sock.close();        
         }
         catch (IOException ioe)
         {
