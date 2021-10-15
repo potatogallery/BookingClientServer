@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import worker.AdminW;
 /**
- *
+ *Admin.java
  * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
  * ADP262S FINAL PROJECT DD:15 OCT 2021
  */

@@ -8,8 +8,11 @@ package za.ac.cput.adpfinalprojserver.start;
 import za.ac.cput.adpfinalprojserver.server.Server;
 
 /**
- *
- * @author raeec
+*ServerStart.java
+ * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
+ * 
+ * GUI APPL
  */
 public class ServerStart {
     public static void main(String[] args) {

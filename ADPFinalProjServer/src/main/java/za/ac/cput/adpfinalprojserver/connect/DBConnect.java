@@ -11,8 +11,11 @@ import java.sql.SQLException;
 
 
 /**
- *
- * @author raeece
+ **DBConnect.java
+ * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
+ * 
+ * Server
  */
 public class DBConnect {
     public static Connection derbyConnection(){

@@ -13,8 +13,11 @@ import java.util.ArrayList;
 import za.ac.cput.adpfinalprojserver.worker.AgentW;
 import za.ac.cput.adpfinalprojserver.connect.DBConnect;
 /*
- *
- * @param Users
+ **agentDAO.java
+ * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
+ * 
+ * GUI APPL
  *
  */
 public class agentDAO {
