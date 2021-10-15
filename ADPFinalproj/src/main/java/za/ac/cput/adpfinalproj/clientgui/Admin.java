@@ -14,10 +14,11 @@ import static java.util.Collections.sort;
 import java.util.ListIterator;
 import za.ac.cput.adpfinalproj.clientgui.CGui;
 import Server.ServerCL;
-import Server.adminDAO;
+
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import worker.AdminW;
 /**
  *
@@ -28,7 +29,7 @@ public class Admin extends JFrame implements ActionListener {
     
     AdminW adminw;
     
-    adminDAO eish = new adminDAO();
+    ServerCL eish = new ServerCL();
     
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("JK.CO (ADMIN)");
@@ -78,11 +79,14 @@ public class Admin extends JFrame implements ActionListener {
     
     public Admin(){
         
-        String[] columnNames = {"",""};
-        Object[][] var = {{"Groove", "31 East Rd Cape Town"},
-                          {"Okahh", "96 Breek St Cape Town"},
-                          {"The Goddess", "12 Loft Rd Pretoria"}};
-        tblVenues = new JTable(var, columnNames );
+        Object[] columnNames = {"Venue","Venue Address"};
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+        tblVenues.setModel(model);
+        tblVenues.setBackground(Color.WHITE);
+        tblVenues.setRowHeight(500);
+        
+        
          
         welcomeLabel.setBounds(500,0,900,30);
         welcomeLabel.setFont(new Font(null, Font.PLAIN,25));
@@ -123,10 +127,10 @@ public class Admin extends JFrame implements ActionListener {
         lblVenues.setBounds(700, 20, 900, 70);
         lblVenues.setFont(new Font(null, Font.PLAIN,18));
         lblVenues.setForeground(Color.RED);
-        tblVenues.setBounds(700, 90, 900, 0);
+        /*tblVenues.setBounds(700, 90, 900, 0);
         tblVenues.setSize(500,350);
         ///tblVenues.setBorder();
-        tblVenues.setBackground(Color.WHITE);
+        tblVenues.setBackground(Color.WHITE);*/
         ///////iNACTIVE
         lblinactive.setBounds(700, 20, 900, 940);
         lblinactive.setFont(new Font(null, Font.PLAIN,18));
@@ -230,6 +234,7 @@ public class Admin extends JFrame implements ActionListener {
         
         this.setVisible(true);
 
+        Object[] var = new Object[2];
     }
     @Override
     public void actionPerformed(ActionEvent e){
@@ -238,39 +243,49 @@ public class Admin extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Please Fill in Fields.");
             } else {
                     String venueName = txtVenueName.getText();
-                    String venueAdd = txtVenueAdd.getText(); 
-             //       adminw = new AdminW(venueName, venueAdd);
-                    try {
-                        boolean keys = eish.newVenue(adminw);
+                    String venueAdd = txtVenueAdd.getText();   
+                    boolean response;
+                    adminw = new AdminW(venueName, venueAdd);
+                    response = eish.addVenue(adminw);
+                    if (response == true) {
+                        
                         JOptionPane.showMessageDialog(null, "New Venue Added");
                         txtVenueName.setText(null);
                         txtVenueAdd.setText(null);
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null, ex);
-                    }
+                    }}
    
-                } 
-            }
-         if(e.getSource() == btnUs) {
+                }
+        
+           if(e.getSource() == btnUs) {
            if ((cboutype.getSelectedIndex() == 0) || txtfirstName.getText().isEmpty() || txtpassword.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Please Fill in Fields.");
             } else {
                     String cbouType = cboutype.getSelectedItem().toString();
                     String firstName = txtfirstName.getText();
                     String password = txtpassword.getText();
-              //      adminw = new AdminW(cbouType, firstName, password);
-                    try {
-                        boolean keys = eish.newUser(adminw);
-                        JOptionPane.showMessageDialog(null, "New Venue Added");
-                        txtVenueName.setText(null);
-                        txtVenueAdd.setText(null);
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null, ex);
-                    }
+                    boolean response;
+                    adminw = new AdminW(cbouType, firstName, password);
+                    response = eish.addVenue(adminw);
+                    if (response == true){  
+                        JOptionPane.showMessageDialog(null, "New User Added");
+                        cboutype.setSelectedItem(null);
+                        txtfirstName.setText(null);
+                        txtpassword.setText(null);
+                    }}
                     
-                } 
+                }
+           if(e.getSource() == btnReset){
+               var[0] = txtVenueName.getText();
+               var[1] = txtVenueAdd.getText();
+               model.addRow(var);
+           }
+           
+           
+           
+           
+           
             }
-        }
+        
     public static void main(String[] args) {
         new Admin().setAdmin();
     }

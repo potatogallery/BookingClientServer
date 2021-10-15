@@ -4,7 +4,15 @@
  * and open the template in the editor.
  */
 package Server;
-import javax.swing.JFrame;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import static java.lang.System.out;
+import java.net.Socket;
+import java.util.ArrayList;
+import sun.nio.fs.WindowsUserPrincipals.User;
+import worker.AdminW;
+import worker.Clients;
 
 /**
  *ServerCL.java
@@ -15,9 +23,23 @@ import javax.swing.JFrame;
  * 
  * 
  */
-public class ServerCL extends JFrame{
+public class ServerCL {
     
-   
+    
+    
+   public boolean addVenue(Adminw adminw) {
+        try {
+            out.writeObject("add Venue");
+            out.flush();
+            out.writeObject(user);
+            out.flush();
+            System.out.println("ClientServer addUser method: completed");
+            return in.readBoolean();
+        } catch (IOException ioe) {
+            System.out.println("ClientServer addUser Method: " + ioe);
+            return false;
+        }
+    }
 
     
             }
