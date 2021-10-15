@@ -12,8 +12,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import za.ac.cput.adpfinalprojserver.worker.AdminW;
 /**
- *
- * @author POTATOE
+ *adminDAO.java
+ * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
+ * 
+ * GUI APPL
  */
 public class adminDAO {
     private Connection con;

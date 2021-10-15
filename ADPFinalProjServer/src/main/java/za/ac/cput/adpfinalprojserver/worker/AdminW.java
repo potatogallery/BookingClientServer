@@ -8,8 +8,11 @@ package za.ac.cput.adpfinalprojserver.worker;
 import java.io.Serializable;
 
 /**
- *
- * @author raeec
+ **AdminW.java
+ * @author Raeece Samuels (217283764) & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
+ * 
+ * GUI APPL
  */
 public class AdminW implements Serializable {
      
