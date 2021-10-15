@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package za.ac.cput.adpfinalprojserver.dao;
-import za.ac.cput.adpfinalprojserver.connect.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import za.ac.cput.adpfinalprojserver.worker.AdminW;
 /**
  *adminDAO.java
