@@ -104,6 +104,14 @@ public class Server {
                     System.out.println("User has been added: " + b);
                     out.writeBoolean(b);
                     out.flush();
+            } else if(userRequest.equalsIgnoreCase("updateclient")){
+                System.out.println("Requesting to update a client");
+                AgentW d = (AgentW) ois.readObject();
+                clientdao = new agentDAO();
+                boolean c = clientdao.newClient(d);
+                System.out.println("User has been added: " + d);
+                   out.writeBoolean(c);
+                   out.flush();
             }
         } while(!userRequest.equalsIgnoreCase("End"));
         }

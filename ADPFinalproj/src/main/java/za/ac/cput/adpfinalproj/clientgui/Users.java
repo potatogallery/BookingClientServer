@@ -284,6 +284,7 @@ public class Users extends JFrame implements ActionListener {
        if (i.getActionCommand().equals(btnSO)){
          System.exit(0);
            System.out.println("Goodbye now");
+           
      }
    }
 
