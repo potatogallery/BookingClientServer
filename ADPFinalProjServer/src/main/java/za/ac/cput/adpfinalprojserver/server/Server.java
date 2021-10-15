@@ -16,6 +16,10 @@ import java.net.Socket;
  */
 public class Server {
     
+        private Socket sock;
+        private ObjectInputStream ois;
+        private ObjectOutputStream out;
+    
 
      // Server socket
     private ServerSocket listener;
@@ -82,29 +86,6 @@ public class Server {
             System.out.println("Class not found: " + cnfe.getMessage());
         }
     }
-    public void processClient() {
-
-        try {
-            do {
-                userRequest = (String) in.readObject();
-            
-            if (userRequest.equalsIgnoreCase("addUser")) {
-                    System.out.println("Requesting to Add User");
-                    User user = (User) in.readObject();
-                    userDao = new UserDao();
-                    boolean response = userDao.addUser(user);
-                    System.out.println("User added: " + response);
-                    out.writeBoolean(response);
-                    out.flush();
+    
             }
-    }
-
-  
-    public static void main(String[] args)
-    {
-        
-        
-        
-    }    
-
-}
+    

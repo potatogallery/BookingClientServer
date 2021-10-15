@@ -5,11 +5,13 @@
  */
 package za.ac.cput.adpfinalprojserver.worker;
 
+import java.io.Serializable;
+
 /**
  *
  * @author raeec
  */
-public class AdminW {
+public class AdminW implements Serializable {
      
     private String venuename, venueaddress, firstname, password, usertype, inactive ;
 

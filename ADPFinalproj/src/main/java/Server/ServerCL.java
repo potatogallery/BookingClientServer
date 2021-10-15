@@ -24,6 +24,20 @@ public class ServerCL {
     private ObjectInputStream ois;
     private Socket sock;
     
+    public ServerCL()
+    {
+        // Attempt to establish connection to server
+        try
+        {
+            // Create socket
+            sock = new Socket("localhost", 1570);
+        }
+        catch (IOException ioe)
+        {
+            System.out.println("IOException: " + ioe.getMessage());
+        }
+    }
+    
    public boolean addVenue(AdminW admin) {
         try {
             out.writeObject("add Venue");
