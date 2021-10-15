@@ -97,12 +97,12 @@ public class Server {
                     out.flush();
                 }
             else if(userRequest.equalsIgnoreCase("addUser")){
-            System.out.println("Request Add Inventory");
+            System.out.println("Requesting for Adding a New User");
                     AdminW cb = (AdminW) ois.readObject();
                     admindao = new adminDAO();
-                    boolean response = admindao.newUser(cb);
-                    System.out.println("Inventory added: " + response);
-                    out.writeBoolean(response);
+                    boolean b = admindao.newUser(cb);
+                    System.out.println("Inventory added: " + b);
+                    out.writeBoolean(b);
                     out.flush();
             }
         }
