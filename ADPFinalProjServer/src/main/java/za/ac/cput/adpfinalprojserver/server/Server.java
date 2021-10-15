@@ -51,7 +51,7 @@ public class Server {
     public void runserver() {
         // Create server socket
         try {
-            communicate = new ServerSocket(1570, 10);
+            communicate = new ServerSocket(1570);
         }
         catch (IOException ioe)
         {
@@ -90,7 +90,7 @@ public class Server {
                     System.out.println("Requesting for Adding a New Venue");
                     AdminW ab = (AdminW) ois.readObject();
                     admindao = new adminDAO();
-                    Boolean a = admindao.newVenue(ab);
+                    boolean a = admindao.newVenue(ab);
                     System.out.println("Venue has been added: " + a);
                     out.writeBoolean(a);
                     out.flush();
