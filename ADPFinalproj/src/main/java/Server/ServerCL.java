@@ -90,15 +90,15 @@ public class ServerCL {
    
    }
    
-   public ArrayList<AgentW> getUsers() {
+   public ArrayList<AgentW> getBookings() {
         try {
-            System.out.println("ServerCL get Users method");
+            System.out.println("ServerCL get Bookings method");
             out.writeObject("get Users");
             out.flush();
-            System.out.println("ServerCL get Users method: completed");
+            System.out.println("ServerCL get Bookings method: completed");
             return (ArrayList<AgentW>) ois.readObject();
         } catch (IOException | ClassNotFoundException ex) {
-            System.out.println("ServerCL get Users method: " + ex);
+            System.out.println("ServerCL get Bookings method: " + ex);
             return new ArrayList<>();
         }
         
