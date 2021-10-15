@@ -109,10 +109,10 @@ public class Server {
                     out.writeBoolean(b);
                     out.flush();
             }
-        } while(!userRequest.equalsIgnoreCase("terminate"));
+        } while(!userRequest.equalsIgnoreCase("btnSO"));
         }
         catch (IOException | ClassNotFoundException e) {
-            System.out.println("Eception: " + e);
+            System.out.println("Exception: " + e);
         }
         
     }
