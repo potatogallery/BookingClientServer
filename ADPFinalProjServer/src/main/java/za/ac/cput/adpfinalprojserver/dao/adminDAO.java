@@ -23,7 +23,7 @@ public class adminDAO {
     private PreparedStatement ps;
     ResultSet rs;
     
-    public boolean newUser(AdminW admin) throws SQLException { 
+    public boolean newUser(AdminW admin) { 
         int key = 0;
         String insertSQL = "INSERT  INTO multilogin (firstname, passw, utype) "
                 + "VALUES ('%s', '%s', '%s')";
@@ -44,7 +44,7 @@ public class adminDAO {
             return key == 0;
     }
     
-    public boolean newVenue(AdminW venue) throws SQLException{
+    public boolean newVenue(AdminW venue){
         int key = 0;
         String insertSQL = "INSERT  INTO adminf (nvenue, nvenaddress) "
                 + "VALUES ('%s', '%s')";

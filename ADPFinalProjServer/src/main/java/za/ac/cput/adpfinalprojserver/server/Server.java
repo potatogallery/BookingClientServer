@@ -40,7 +40,7 @@ public class Server {
     ArrayList<AgentW> clients = new ArrayList<>();
     ArrayList<AdminW> admins = new ArrayList<>();
 
-    public Server() throws SQLException {
+    public Server() {
         System.out.println("Server is online");
         runserver();
         listen();
@@ -82,7 +82,7 @@ public class Server {
     
     }
     
-    public void processClient() throws SQLException
+    public void processClient()
     {
         try { 
             userRequest = (String) ois.readObject();
@@ -91,7 +91,7 @@ public class Server {
                     System.out.println("Requesting for Adding a New Venue");
                     AdminW ab = (AdminW) ois.readObject();
                     admindao = new adminDAO();
-                    boolean a = admindao.newVenue(ab);
+                    Boolean a = admindao.newVenue(ab);
                     System.out.println("Venue has been added: " + a);
                     out.writeBoolean(a);
                     out.flush();
