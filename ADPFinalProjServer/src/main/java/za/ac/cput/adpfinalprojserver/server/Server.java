@@ -10,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import za.ac.cput.adpfinalprojserver.dao.adminDAO;
 import za.ac.cput.adpfinalprojserver.dao.agentDAO;
 import za.ac.cput.adpfinalprojserver.worker.AdminW;
@@ -32,7 +33,8 @@ public class Server {
         
         String userRequest;
      
-    
+    ArrayList<AgentW> clients = new ArrayList<>();
+    ArrayList<AdminW> admins = new ArrayList<>();
     /** Creates a new instance of ServerApp */
     
     {
