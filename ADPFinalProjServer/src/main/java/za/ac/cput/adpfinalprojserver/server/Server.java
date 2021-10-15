@@ -10,66 +10,78 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import za.ac.cput.adpfinalprojserver.worker.AdminW;
-import za.ac.cput.adpfinalprojserver.worker.Clients;
 /**
  *
- * @author raeec
+ * @author raeece
  */
 public class Server {
     
 
-    ServerSocket listener;
-    Socket user;
-
-    ObjectInputStream in;
-    ObjectOutputStream out;
-
-    Clients userDao;
-    AdminW adminDao;
+     // Server socket
+    private ServerSocket listener;
     
+    // Client connection
+    private Socket client;
     
-    String userRequest;
-
-    ArrayList<Clients> users = new ArrayList<>();
-    ArrayList<AdminW> admins = new ArrayList<>();
+    /** Creates a new instance of ServerApp */
     
-    
-    public Server() {
-        System.out.println("Server running");
-        startServer();
-        listen();
-        createStreams();
-        processClient();
-    }
-
-    public void startServer() {
+    {
+        // Create server socket
         try {
-            listener = new ServerSocket(9999, 1);
-        } catch (IOException ie) {
-            System.out.println(ie.getMessage());
+            listener = new ServerSocket(1570, 10);
+        }
+        catch (IOException ioe)
+        {
+          System.out.println("IO Exception: " + ioe.getMessage());
         }
     }
-
-    public void listen() {
+    
+    public void listen()
+    {
+        // Start listening for client connections
         try {
-            user = listener.accept();
-        } catch (IOException ie) {
-            System.out.println(ie.getMessage());
+          System.out.println("Server is listening");
+          client = listener.accept();  
+          System.out.println("Now moving onto processClient");
+          
+          processClient();
+        }
+        catch(IOException ioe)
+        {
+            System.out.println("IO Exception: " + ioe.getMessage());
         }
     }
-
-    public void createStreams() {
+    
+    public void processClient()
+    {
+        // Communicate with the client
+        
+        // First step: initiate channels
         try {
-            out = new ObjectOutputStream(user.getOutputStream());
+            ObjectOutputStream out = new ObjectOutputStream(client.getOutputStream());
             out.flush();
-            in = new ObjectInputStream(user.getInputStream());
-        } catch (IOException ie) {
-            System.out.println(ie.getMessage());
+            ObjectInputStream in = new ObjectInputStream(client.getInputStream());
+            
+            // Step 2: communicate
+            String msg = (String)in.readObject();
+            System.out.println("From newCustomer>> " + msg);
+            out.writeObject("Hello " + msg);
+            out.flush();
+            
+            // Step 3:close down
+            out.close();
+            in.close();
+            client.close();        
+        }
+        catch (IOException ioe)
+        {
+            System.out.println("IO Exception: " + ioe.getMessage());
+        }
+        catch (ClassNotFoundException cnfe)
+        {
+            System.out.println("Class not found: " + cnfe.getMessage());
         }
     }
-
     public void processClient() {
 
         try {
@@ -86,4 +98,13 @@ public class Server {
                     out.flush();
             }
     }
+
+  
+    public static void main(String[] args)
+    {
+        
+        
+        
+    }    
+
 }
