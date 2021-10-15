@@ -79,12 +79,7 @@ public class Admin extends JFrame implements ActionListener {
     
     public Admin(){
         
-        Object[] columnNames = {"Venue","Venue Address"};
-        DefaultTableModel model = new DefaultTableModel();
-        Object[] var = new Object[2];
-        model.setColumnIdentifiers(columnNames);
-        tblVenues.setModel(model);
-        tblVenues
+        
         
          
         welcomeLabel.setBounds(500,0,900,30);
