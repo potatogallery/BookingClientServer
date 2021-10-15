@@ -26,7 +26,7 @@ public class clientDAO {
         this.con = DBConnect.derbyConnection();
     }
     
-    public boolean newAdmin(Clients client) throws SQLException {
+    public boolean newClient(Clients client) throws SQLException {
         
          
         int key = 0;

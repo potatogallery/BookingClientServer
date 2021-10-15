@@ -13,6 +13,16 @@ public class AdminW {
      
     private String venuename, venueaddress, firstname, password, usertype, inactive ;
 
+    public AdminW(String venuename, String venueaddress, String firstname, String password, String usertype, String inactive) {
+        this.venuename = venuename;
+        this.venueaddress = venueaddress;
+        this.firstname = firstname;
+        this.password = password;
+        this.usertype = usertype;
+        this.inactive = inactive;
+    }
+
+    
     public String getVenuename() {
         return venuename;
     }

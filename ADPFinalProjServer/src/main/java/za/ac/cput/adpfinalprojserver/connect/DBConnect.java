@@ -8,27 +8,23 @@ package za.ac.cput.adpfinalprojserver.connect;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
- * @author raeec
+ * @author raeece
  */
 public class DBConnect {
-    public static Connection derbyConnection() {
-        Connection con = null;
-        try{
-            con = DriverManager.getConnection("jdbc:derby://localhost:1527/DBookings", "Admin1", "Admin1" );
-            return con;
+    public static Connection derbyConnection(){
+        String url = "jdbc:derby://localhost:1527/DBookings";
+        String user = "Admin1";
+        String password = "Admin1";
+        Connection DBookings = null;
+        try {
+            DBookings = DriverManager.getConnection(url, user, password);
+        } catch (SQLException ex) {
+            System.out.print("Connection Error");
         }
-        catch(SQLException ex){
-            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-        /*String url="jdbc:derby://localhost:1527/DBookings";
-        String user="Admin1";
-        String password="Admin1";  
-      return DriverManager.getConnection(url, user, password);*/
-    } 
+        return DBookings;
+    }
 }
