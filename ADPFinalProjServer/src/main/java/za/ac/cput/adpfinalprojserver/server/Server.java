@@ -35,7 +35,15 @@ public class Server {
      
     ArrayList<AgentW> clients = new ArrayList<>();
     ArrayList<AdminW> admins = new ArrayList<>();
-    /** Creates a new instance of ServerApp */
+
+    public Server() {
+        System.out.println("Server is online");
+        runserver();
+        listen();
+        createChannels();
+        processClient();
+    }
+    
     
     public void runserver() {
         // Create server socket
