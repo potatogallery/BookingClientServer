@@ -37,14 +37,14 @@ public class Server {
         String userRequest;
      
     ArrayList<AgentW> clients = new ArrayList<>();
-    ArrayList<AdminW> admins = new ArrayList<>();
+    
 
     public Server() {
         System.out.println("System is online");
         runserver();
         listen();
-        createChannels();
-        processClient();
+        cStreams();
+        pServer();
     }
 
     
@@ -70,7 +70,7 @@ public class Server {
         }
     }
     
-    public void createChannels() {
+    public void cStreams() {
         try {
             out = new ObjectOutputStream(sock.getOutputStream());
             out.flush();
@@ -78,18 +78,14 @@ public class Server {
         } catch (IOException ie) {
             System.out.println(ie.getMessage());
         }
-    
-    
-    
     }
     
-    public void processClient()
+    public void pServer()
     {
         try { 
             
             do {
             userRequest = (String) ois.readObject();
-            // Step 2: communicate
             if (userRequest.equalsIgnoreCase("addVenue")) {
                     System.out.println("Requesting for Adding a New Venue");
                     AdminW ab = (AdminW) ois.readObject();
@@ -117,12 +113,21 @@ public class Server {
                    out.writeBoolean(c);
                    out.flush();
             }
-        } while(!userRequest.equalsIgnoreCase("terminate"));
+        } while(!userRequest.equalsIgnoreCase("End"));
         }
         catch (IOException | ClassNotFoundException e) {
             System.out.println("Exception: " + e);
+            System.out.println("System is Closed");
         }
         
+    }
+    public static void main(String[] args)
+    {
+        // Create application
+        Server server = new Server();
+        
+        // Start waiting for connections
+        server.listen();
     }
     
 }

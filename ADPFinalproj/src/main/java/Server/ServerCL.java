@@ -29,7 +29,7 @@ public class ServerCL {
     private Socket sock;
     
     ArrayList<AgentW> clients = new ArrayList<>();
-    ArrayList<AdminW> admins = new ArrayList<>();
+    
     
     public void ServerCL()
     {
@@ -39,8 +39,7 @@ public class ServerCL {
             sock = new Socket("localhost", 1570);
             out = new ObjectOutputStream(sock.getOutputStream());
             out.flush();
-            ois = new ObjectInputStream(sock.getInputStream());
-        } catch (IOException ex) {
+            ois = new ObjectInputStream(sock.getInputStream());} catch (IOException ex) {
             System.out.println(ex);
         }
     }
@@ -48,27 +47,21 @@ public class ServerCL {
     
    public boolean addVenue(AdminW admin) {
         try {
-            out.writeObject("add Venue");
-            out.flush();
             out.writeObject(admin);
             out.flush();
             System.out.println("ServerCL Venue ADD: finished");
             return ois.readBoolean();
-        } catch (IOException ioe) {
-            System.out.println("ServerCL Venue ADD: " + ioe);
+        } catch (IOException e) {System.out.println("ServerCL Venue ADD: " + e);
             return false;
         }
     }
    public boolean addUser(AdminW admin){
        try {
-            out.writeObject("add User");
-            out.flush();
             out.writeObject(admin);
             out.flush();
             System.out.println("ServerCL User ADD: finished");
             return ois.readBoolean();
-        } catch (IOException ioe) {
-            System.out.println("ServerCL User ADD: " + ioe);
+        } catch (IOException e) {System.out.println("ServerCL User ADD: " + e);
             return false;
         }
        
@@ -77,28 +70,26 @@ public class ServerCL {
    
    public boolean addClient(AgentW client) {
        try {
-            out.writeObject("add Client");
-            out.flush();
             out.writeObject(client);
-            System.out.println("ServerCL Client ADD: completed");
+            System.out.println("ServerCL Client ADD: finished");
+            out.flush();
             return ois.readBoolean();
        } catch (IOException ioe) {
-           System.out.println("ServerCL ClientADD: " + ioe);
+           System.out.println("ServerCL Client ADD: " + ioe);
            return false;
        }
    
    
    }
    
-   public ArrayList<AgentW> getBookings() {
+   public ArrayList<AgentW> getUsers() {
         try {
-            System.out.println("ServerCL get Bookings method");
-            out.writeObject("get Users");
+            System.out.println("ServerCL get Client");
             out.flush();
-            System.out.println("ServerCL get Bookings method: completed");
+            System.out.println("ServerCL get Client: finished");
             return (ArrayList<AgentW>) ois.readObject();
         } catch (IOException | ClassNotFoundException ex) {
-            System.out.println("ServerCL get Bookings method: " + ex);
+            System.out.println("ServerCL get Client: " + ex);
             return new ArrayList<>();
         }
         

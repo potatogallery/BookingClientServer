@@ -231,7 +231,7 @@ public class Admin extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e){
-        if (e.getSource() == btnv1) {
+        if (e.getActionCommand().equals(btnv1)) {
            if (txtVenueName.getText().isEmpty() || txtVenueAdd.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please Fill in Fields.");
             } else {
@@ -250,7 +250,7 @@ public class Admin extends JFrame implements ActionListener {
    
                 }
         
-           if(e.getSource() == btnUs) {
+           if(e.getActionCommand().equals(btnUs)) {
            if ((cboutype.getSelectedIndex() == 0) || txtfirstName.getText().isEmpty() || txtpassword.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Please Fill in Fields.");
             } else {
@@ -270,6 +270,10 @@ public class Admin extends JFrame implements ActionListener {
                     }}
                     
                 }
+           if (e.getActionCommand().equals(btnSO)){
+         System.exit(0);
+           System.out.println("Goodbye now");
+     }
             }
         
     public static void main(String[] args) {

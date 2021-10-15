@@ -9,8 +9,9 @@ import za.ac.cput.adpfinalproj.clientgui.CGui;
 
 
 /**
- *
- * @author POTATOE
+ *RUNGUI.java
+ * @author Raeece Samuels ('StundentNo') & Keallan Saunders (219169357)
+ * ADP262S FINAL PROJECT DD:15 OCT 2021
  */
 public class RUNGUI {
     public static void main(String[] args) {
